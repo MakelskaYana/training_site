@@ -1,0 +1,148 @@
+@import "styleMeyerReset.css";
+	.wrapper{
+	width:1200px; /*div занимает по ширине все доступное место в пределах экрана, нужно ограничивать*/
+	margin:0 auto; /*Выравнивание элемента по центру экрана*/
+	background:lightgrey; /*Цвет фона всего элемента*/	
+
+	}
+
+	.header{
+		background:lightgrey;
+		position: fixed;
+		z-index: 3;
+
+	}
+	.menu{
+		width: 1200px;
+		min-height: 60px;
+		background:pink;
+		text-align: center;
+		line-height: 60px; /*Добавила для того, что бы выровнять по центру menu вертикально элементы inline_elem, которые находятся внутри этого блока.*/
+		
+		
+
+	}
+
+	.inline_elem{
+		display: inline-block;
+		width: 150px;
+		font-size: 35px;
+		vertical-align: top; /*Добавила для того, чтоб блок menu был как задано 60рх, иначе скачут элементы inline_elem внутри него и он увеличивается(как с картинкой)*/
+	 	white-space: nowrap;/* Поскольку контент внутреннего блока не должен переноситься на вторую строку*/
+		overflow: hidden; /*Что б контент внутри блока соответсвовал заданной ширине и лишние обрезалось*/
+	}
+
+	a{
+		color:white;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+	}
+	.info{
+		display: inline-block;
+		background:#fff;
+		border:1px solid #000;
+		padding: 5px;
+		box-sizing: content-box;
+		color:grey;
+		font-size: 30px;
+		position: absolute;
+		right: 10px;
+		/*z-index: 3; Ошибка, не могу перекрыть , потому что они не на одном уровне вложенности!!!
+		Задала значение, что б info смог перекрыть элемент sticly_elem который прилетает и потом перекрывает info.
+		Исправила выше, задала z-index для header, потому что он на одном уровне вложености со sticly_elem, а в него входит уже сам info!
+		*/
+
+	}
+	.internal_block{
+		min-height: 5000px;
+		background:#c8c844;
+	
+	}
+
+	.sticly_elem{
+		min-height: 200px;
+		background:red;
+		position: sticky;
+		top:60px; /*Задала значение ширины меню,чтоб он находился под ним, когда прилипает сверху.*/
+	}
+/*Делаю соц.меню в футере*/	
+	.footer{
+		min-height: 70px;
+		background:red;
+		position: sticky;
+		bottom: 5px;/*Задала значение 5px на расстоянии от низа, что б он отображался при открытии страницы сразу(иначе увидим только когда долистаем до него).*/
+	}
+
+	/*Социальное меню*/
+	.footer ul{
+		float: right; /*Сделала для того что б socmenu был справа и в одну строку с span*/
+		font-size: 0;
+	}
+	.clearfix::after{ /*Распорка для блоков float , элементов списка*/
+		clear: both;
+		display: block;
+		content: "";
+	}
+
+	.socmenu>li{
+		/*background: #fff;*/
+		display: inline-block;
+		margin:0 10px 10px 0; 
+	/*	overflow: hidden;*/
+	}
+	.socmenu>li:last-child{
+		margin-right: 0;
+
+	}
+	.socmenu>li>a{
+	/*	width: 60px; Не влазил тест, потому что задала ширину для а . Ширина зависит от динамического текста! */
+	/*	background: url('../sprites/my_sprite/sprites.png') 0 0 no-repeat; Уже задаю его не для а , а для ее псевдоэлемента ниже*/	
+		padding-left: 70px; /*Задаю для того, что б оставить пустое место под иконку (псевдоэлемент) Рядом с текстом*/
+		display: block; /*Для того, что б задать строчной ссылке ширину и высоту и padding(под картинку), мы делаем ее блочной!*/
+		color: #000;
+		text-decoration: none;
+		font-size: 40px;
+		line-height: 70px;
+		position: relative; /*Относительно этого родителя ровняем дочерний absolute*/
+		transition: width 1s linear;
+	}
+	.socmenu>li>a:before{
+		width: 60px; /*Размер картинки из спрайта, которая будет background для каждой ссылки*/
+		height: 60px;
+		display: block; /*Задаю, что б ширина и высота сработали, :before по умолч.строчный*/
+		content: ""; /*Потому что это псевдоэлемент, и можно еще каждому сюда прописать название соц.сети - SMM*/
+		background: url('../sprites/my_sprite/sprites.png') 0 0 no-repeat;
+		border-radius:10px; /*Устанавливает радиус скругления уголков рамки. Если рамка не задана, то скругление также происходит и с фоном.*/
+		position: absolute;
+		left:5px;
+		top:5px;
+	}
+	.socmenu> .t a:before{
+		background-position: 0 -60px ;
+	}
+	
+	.socmenu>.y a:before{
+		background-position: 0 -120px ;
+	}
+	.socmenu>.i a:before{
+		background-position: 0 -180px ;
+	}
+	/*.socmenu>li:hover a{ /*Вешаю hover на вышестоящий элемент, для удобства. Но можно и на a эффект тот же!*/
+		/*transition: width 1s linear;*/ /*Анимация работает только в одну сторону (из начального в заданное тут состояние)на увеличение ширины,
+		и потом когда вне зоны элемента мышка, то резко ширина прежней становится.*/
+		/*width: 300px; *//*Свойство, которое будет меняться и анимироваться еще при этом } */ 
+	
+	.socmenu>.f:hover a:before{ /*Вешаю hover на вышестоящий элемент, для удобства. Но можно и на a эффект тот же!*/
+		background:url('../sprites/my_sprite/sprites.png') 60px 0;
+	}
+	
+	.socmenu>.t:hover a:before{
+		background-position: -60px -60px ;
+	}
+	.socmenu>.y:hover a:before{
+		background-position: -60px -120px ;
+	}
+	.socmenu>.i:hover a:before{
+		background-position: -60px -180px ;
+	}
+
+

@@ -1,0 +1,424 @@
+@import "styleMeyerReset.css";/*Подключение набора селекторов, который убирает все стили элементов,заданные по умолчанию*/
+
+	form{
+		width:1200px;
+		background:#d4e8e969;
+		margin:0 auto;
+	}
+	form>div{
+		padding: 10px;
+		font-size: 0;/* чтоб между полями не было пробелов*/
+	}
+	.textarea_container{/* завернула эти блоки 	textarea в textarea_container,что б при растягивании их 
+	они не сломали верстку для других элементов в форме (select)*/
+	}
+	textarea{
+		vertical-align: top;
+		margin: 0 10px;
+		/*font-size остался,хоть я родителю и задала 0*/
+	}
+
+	.first_ta{
+		width: 200px;
+		max-width: 300px;/*задала ограничение для растягивания по ширине*/
+		height: 100px;
+		min-height: 50px;/*задала ограничение для сжимания по высоте*/
+		resize:both;/*знач.по умолч. Разрешает изменять размеры формы в обе стороны:по ширине, и по высоте*/;
+		/*overflow: auto; по умолч.стоит.Оно не прописано как свойство, но работает по его принципу.Авто скрол при большом контенте*/
+		
+
+	}
+	.second_ta{
+		overflow: hidden; /*При заполнении контентом,который по количеству строк больше чем начальный блок, не будет включаться скрол.*/
+		resize: vertical;/*разрешаю изменять поле только увеличивая или уменьшая по высоте*/
+	}
+
+	.third_ta{
+		overflow: auto; /*При заполнении контентом,который по количеству строк больше чем начальный блок,
+		скрол включается автоматически. Либо как у меня сейчас все строки по горизонтали не влезли и включился горизонтальный скрол*/
+		resize:horizontal; /*разрешаю изменять поле только увеличивая или уменьшая по ширине*/
+		outline: none;/* убрала подсветку при фокусе.можно добавлять и к псевдоклассу и к обычному состоянию*/
+	}
+
+	.fourth_ta{
+		resize:none;/* не разрешает изменять поле по ширине, и по высоте*/;
+		/*!!!!но при этом overflow: auto - оно не прописано как свойство, но работает по его принципу.Авто скрол при большом контенте*/
+	}
+	.fourth_ta:focus{ /*отсеживаю активность поля когда оно в фокусе внутри него стоит активный курсор*/
+		width: 200px;
+		height: 50px;
+		outline: none;/* убрала подсветку при фокусе.можно добавлять и к псевдоклассу и к обычному состоянию*/
+	}
+	.fifth_ta{
+	
+	}
+	textarea::placeholder{
+		font-size: 20px;
+		color: green; 
+	}
+	textarea::-webkit-input-placeholder { 
+ 		color: pink;
+	}
+	textarea::-moz-placeholder{ /* Firefox 19+ */
+		color:#c0392b;
+	}
+
+	.select_container{ /*сделала для отделения тегов textarea от тегов select. Чтоб не ломать верстку и чтоб они в разных строках были*/
+		vertical-align: top;
+		margin: 0 10px;
+	}
+
+	input{
+		vertical-align: top;
+		margin: 5px 10px;
+		font-size: 20px;
+
+	}
+	input::placeholder{ /*стилизуем атрибут placeholder через псевдоэлемент ::placeholder*/
+		color: green; 
+	}
+	input:focus::placeholder{ /*делаю анимирование placeholder когда поле находится в фокусе*/
+		color:black;
+		transform:translate(100%);
+		transition: transform 0.5s linear;
+	}
+
+	.input_container button{
+		margin: 5px 20px;
+		font-size: 25px;
+		background: linear-gradient(white,grey);
+	}
+	label{
+		font-size: 20px;
+		cursor:pointer;/* курсор становится в виде ладошки при наведении на элемент label .
+		И при нажатии этой ладошкой на label фокус будет появляться в поле, к которому label привязан.*/
+	}
+	.together label{
+	}
+	.together input{
+		vertical-align: middle;/* задала для input, но на самом деле выровняла label относительно input*/
+	}
+
+	.separat input{
+		vertical-align: middle;/* задаю для двух элементов, они срочные и по умолч.vertical-align: baseline*/
+
+	}
+	.separat label{
+		vertical-align: middle;/* задаю для двух элементов, они срочные и по умолч.vertical-align: baseline*/
+	}
+
+	.container{
+		float: left; /*сделали его float  что б он был не по ширине родителя, а по контенту.
+		Ширина float-блока определяется по содержимому. */
+	}
+	.separately{
+		text-align: right;
+		/*line-height: 30px;*//* Выровняла label относительно input .можно тут а можно для самого label*/
+	}
+	
+	.separately input{
+
+	}
+	.separately label{
+		float:left;
+		padding-right: 10px;
+		font-size: 30px;
+		line-height: 33px;/* Выровняла label относительно input*/
+	}
+	.clearfix::after{
+		clear: both;
+		content: "";
+		display: block;
+	}
+
+	.choose_a_lot {
+		margin-top:10px;
+	}
+	.choose_a_lot label:nth-child(1){
+		font-size: 25px;
+		padding-right: 20px;
+		margin-top: 10px;
+	}
+	.choose_a_lot input[type="checkbox"]{ /*нельзя стилизовать, не применяться свойства, но и не зачеркнуться в инспекторе кода*/
+	/*	!!!!! скрыла все элементы с типом checkbox через массовое обращение*/
+		display: none; /*поэтому совсем их скрываем.*/
+	}
+	/*#inp_6+label, #inp_7+label, #inp_8+label{ современней написать как ниже обращение*/
+	.choose_a_lot input[type="checkbox"]+label{/*и стилизуем не input, а label, которые с ними связаны*/
+		margin-right:10px;
+		padding-left: 30px;
+		position: relative;
+	}
+	.choose_a_lot input[type="checkbox"]+label:before{ /*стилизую само поле для выбора*/
+		position: absolute;
+		left: 0;
+		top:0;
+		display: block;
+		content: "";
+		width: 20px;
+		height: 20px;
+		border:1px solid grey;
+	}
+	.choose_a_lot input[type="checkbox"]:checked+label:before{ /*стилизую поле, когда элемент выбран*/
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.3);
+	}
+
+	.choose_a_lot input[type="checkbox"]:checked+label:after{ /*стилизую галочку-знак выбора элемента*/
+		position: absolute;
+		left: 1px;
+		top:3px;
+		display: block;
+		content: "";
+		width: 18px;
+		height: 10px;
+		border-left:1px solid black;
+		border-bottom:1px solid black;
+		transform: rotate(-55deg);
+	}
+
+	.choose_one{
+		margin-top: 10px;
+	}
+	.choose_one label:nth-child(1){
+		font-size: 25px;
+		padding-right: 20px;
+		
+	}
+	.choose_one input[type="radio"]{ /*нельзя стилизовать, не применяться свойства, но и не зачеркнуться в инспекторе кода*/
+	/*	!!!!! скрыла все элементы с типом checkbox через массовое обращение*/
+		display: none; /*поэтому совсем их скрываем.*/
+	}
+	/*#inp_6+label, #inp_7+label, #inp_8+label{ современней написать как ниже обращение*/
+	.choose_one input[type="radio"]+label{/*и стилизуем не input, а label, которые с ними связаны*/
+		margin-right:10px;
+		padding-left: 30px;
+		position: relative;
+	}
+	.choose_one input[type="radio"]+label:before{ /*стилизую само поле для выбора*/
+		position: absolute;
+		left: 0;
+		top:0;
+		display: block;
+		content: "";
+		width: 20px;
+		height: 20px;
+		border:1px solid grey;
+		border-radius: 50%;
+	}
+	.choose_one input[type="radio"]:checked+label:before{ /*стилизую поле, когда элемент выбран*/
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.3);
+	}
+
+	.choose_one input[type="radio"]:checked+label:after{ /*стилизую галочку-знак выбора элемента*/
+		position: absolute;
+		left: 2px;
+		top:2px;
+		display: block;
+		content: "";
+		width: 18px;
+		height: 10px;
+		border-left:1px solid black;
+		border-bottom:1px solid black;
+		transform: rotate(-55deg);
+	}
+	.light_radio{
+		margin-top:10px;
+	}
+	#inp_12, #inp_13, #inp_14{
+		display: none;
+	}
+	#inp_13+label{
+		position: relative;
+		padding-left: 60px;	
+		font-size: 30px;
+		margin-right: 20px;
+	}
+	#inp_13+label:before{
+		position: absolute;
+		left: 0;
+		top:7px;
+		display: block;
+		content: "";
+		width: 50px;
+		height: 20px;
+		border-radius: 5px;
+		border:1px solid grey;
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+	}
+	#inp_13+label:after{
+		position: absolute;
+		left: 2px;
+		top:10px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 16px;
+		border-radius: 30%;
+		background: red;
+	}
+	#inp_13:checked+label:after{
+		left: 25px;
+		background: green;
+		transition: all 0.5s linear;
+	}
+	#inp_13:checked+label{
+		border:1px solid rgba(0,0,0,0.2);
+		background: yellow;
+		opacity: 1;
+		transition: background, opacity 0.5s linear;
+	}
+	
+
+	#inp_14+label{
+		position: relative;
+		padding-left: 60px;	
+		font-size: 30px;
+	}
+	#inp_14+label:before{
+		position: absolute;
+		left: 0;
+		top:7px;
+		display: block;
+		content: "";
+		width: 50px;
+		height: 20px;
+		border-radius: 5px;
+		border:1px solid grey;
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+	}
+	#inp_14+label:after{
+		position: absolute;
+		left: 2px;
+		top:10px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 16px;
+		border-radius: 30%;
+		background: red;
+	}
+	#inp_14:checked+label:after{
+		left: 25px;
+		background: green;
+		transition: all 0.5s linear;
+	}
+	#inp_14:checked+label{
+		box-shadow:none;
+		transition: all 0.2s linear;
+	}
+	#inp_13:checked+label+input+label{
+		box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+	}
+
+	#num_none,#num_style{
+		display: inline-block;
+		position: relative;
+	}
+	#num_none input{
+		width: 70px;
+		height: 25px;
+		padding: 0 35px;
+		margin: 0;
+	}
+	#num_none input::-webkit-outer-spin-button, #num_none input::-webkit-inner-spin-button {
+	  -webkit-appearance:none;
+	 }
+
+	#minus{
+		margin: 0;
+		position: absolute;
+		left: 12px;
+		top:13px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 23px;
+		border-radius: 30%;
+		background: red;
+		border:none;
+	}
+
+	#plus{
+		margin: 0;
+		position: absolute;
+		right:12px;
+		top:13px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 23px;
+		border-radius: 30%;
+		background: green;
+		border:none;
+	}
+
+/*	input[type="number"] {
+	  -moz-appearance: textfield;
+	}
+
+	input[type="number"]:hover, input[type="number"]:focus {
+	  -moz-appearance: number-input;
+	}*/	
+	#num_style input{
+		width: 70px;
+		height: 27px;
+		padding-left: 2px;
+		margin: 0;
+		position: relative;
+		background: transparent;
+		border:1px solid grey;
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.3);
+		z-index: 3;
+	}
+	#num_style input::-webkit-outer-spin-button, #num_style input::-webkit-inner-spin-button {
+		opacity: 0;
+	}
+	figure{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	figure:before{
+		position: absolute;
+		right:13px;
+		top:13px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 12px;
+		border-radius: 30%;
+		background: green;
+	}
+	figure:after{
+		position: absolute;
+		right:13px;
+		top:27px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 12px;
+		border-radius: 30%;
+		background: red;
+	}
+/*	figure:before{
+		position: absolute;
+		right:12px;
+		top:13px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 12px;
+		border-radius: 30%;
+		background: green;
+	}
+	figure:after{
+		position: absolute;
+		right:12px;
+		top:27px;
+		display: block;
+		content: "";
+		width: 25px;
+		height: 12px;
+		border-radius: 30%;
+		background: red;
+	}*/

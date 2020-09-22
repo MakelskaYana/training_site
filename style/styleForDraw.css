@@ -1,0 +1,1334 @@
+@import "styleMeyerReset.css";
+	.wrapper{
+		width: 1200px;
+		margin: 0 auto;
+		font-size: 0;
+		text-align: center;
+		background: #f6f6f6;
+	}
+
+/*Флаги*/
+	.flags div{
+		width: 100px;
+		height: 50px;
+		display: inline-block;
+		outline: 1px solid black;
+		margin:5px;
+	}
+	.ukr{
+		background: linear-gradient(yellow 50%, blue 50%);
+	}
+	.rus{
+		background: linear-gradient(white 33%,blue 34%, blue 67%, red 68%);
+
+	}
+
+/*Градиент для разделения элементов списка */
+	ul{
+		font-size: 0;
+		margin: 10px;
+
+	}
+	li{
+		width: 100px;
+		height: 60px;
+		display: inline-block;
+		padding-left: 5px;
+		position: relative;
+		background: pink;
+	}
+	li:before{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		left:0;
+		top:0;
+		background-image: repeating-linear-gradient(to bottom,rgba(0,0,0,1) 0,rgba(0,0,0,1) 4px,
+					rgba(0,0,0,0.2) 5px, rgba(0,0,0,0.2) 8px,transparent 9px,transparent 12px);
+	}
+/*Новостной элемент с затемнением на последней строке.*/
+	.container_news{
+		display: inline-block;
+		margin: 5px;
+		padding: 5px;
+		width: 250px;
+		background: pink;
+		font-size: 20px;
+		color: white;
+		outline: 1px solid black;
+	}
+	.container_news span{
+		background:#8484d2;
+		line-height: 30px; /*Появился отступ снизу после него, margin вертикальный же я не могу ему задать*/
+	}
+	.news_elem{
+		height: 200px;
+		padding: 10px;
+		overflow: hidden;/* Чтоб обрезать тот текст, который не влазит в блок*/
+		background: grey;
+		text-align: justify;
+		position: relative;
+	}
+	.news_elem:after{
+		content: " ";
+		display: block;
+		left: 0;
+		top:155px;
+		height: 75px;
+		width: 100%;
+		background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.9) 70%);
+		position: absolute;
+		z-index: 2; /*Обязательно, для того что б absolute  был виден, выше чем div*/
+	}
+/*Блоки с разным градиентом и абсолютным элементом	*/
+	.container_content div{
+		/*height: 200px;*/
+		font-size: 30px;
+		color: purple;
+		/*	box-sizing: border-box; Если я это напишу и у меня для div не будет задана высота, а он будет растягиваться по контенту, 
+		и padding 50рх будет входить в высоту блока, то высота блока = высота контента +padding*/
+	}
+	.container_content>:first-child{
+		background: yellow;
+		padding-bottom: 50px;
+		position: relative;
+	}
+	.container_content div:first-child:after{
+		position: absolute;
+		content: "";
+		display: block;
+		z-index: 2;
+		bottom:-50px;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		background: linear-gradient(to right bottom, yellow 50%,black 51%);
+	}
+	.container_content div+div{
+		background: black;
+		padding-top: 50px;
+	}
+/*Виньетирование */
+	.sunset{
+		display: inline-block; /*Что б растянулся по размерам вложенной картинки по высоте и ширине*/
+		/*width: 100%; имеется ввиду от ширины родителя*/
+		overflow: hidden;
+		position: relative;
+	}
+	.sunset img{
+		width: 100%; /*Картинка растянулась не по родителю .sunset, а по его родителю wrapper*/
+		height: 400px;
+	}
+	.sunset:before{
+		position: absolute;
+		z-index: 3;
+		top:0;/* Растянулся по ширине родителя, потому что прибился верх и низ к родителю*/
+		bottom: 0;
+		left:0;
+		content: "";
+		display: block;
+		width: 100%;
+		background: radial-gradient(ellipse,transparent 60%,black);
+	}
+/*Нарисованный дизайнерский элемент на странице резиновый*/
+	.diz_elem{
+		width: 100%;
+		min-height: 400px;
+		position: relative;
+	}
+	.diz_elem:before{
+		position: absolute;
+		content: "";
+		display: block;
+		width: 50%;
+		height: 40%;
+		top:0;
+		left: 0;
+		background: radial-gradient(ellipse farthest-side at bottom right,transparent 100%,purple 101%);
+	}
+/*Повторяющийся градиент*/
+	.grad div{
+		height: 400px;
+        width: 400px; 
+        display: inline-block;
+        font-size: 30px;
+        color: white;
+        vertical-align: top;
+        margin: 5px;
+	}
+	.gr_rep{
+		background: repeating-linear-gradient(90deg,
+				        #96d2cf 0, #96d2cf 20px,
+				        #cfdbc7 20px, #cfdbc7 40px,
+				        #dfa798 40px, #dfa798 70px,
+				        #fbc9b2 70px, #fbc9b2 100px); /*Или правильнее писать 	background-image?*/
+    }
+	.gr_img{
+		background: repeating-linear-gradient(60deg,
+                        #e7f0ed 0px, #e7f0ed 15px,
+                        #d8bbb5 15px, #d8bbb5 25px,
+                        #d1afa6 25px, #d1afa6 35px,
+                        #f1b6a8 35px, #f1b6a8 45px,
+                        #ffefd7 45px, #ffefd7 55px),
+                   	repeating-linear-gradient(-60deg,
+                        #e7f0ed 0px, #e7f0ed 15px,
+                        #d8bbb5 15px, #d8bbb5 25px,
+                        #d1afa6 25px, #d1afa6 35px,
+                        #f1b6a8 35px, #f1b6a8 45px,
+                        #ffefd7 45px, #ffefd7 55px); /*Или правильнее писать 	background-image?*/
+        background-blend-mode: multiply;
+    }
+/*Градиент для border рамки способ 1*/
+	.cont div{
+		display: inline-block;
+		vertical-align: top;
+		width: 300px;
+		height: 60px;
+		box-sizing: border-box;
+		font-size: 20px;
+		line-height: 40px;
+		color: white;
+		text-align: center;
+	}
+
+	.bord_imit{
+		padding:10px 10px;
+		background: linear-gradient(red,pink,yellow);
+	}
+	.bord_imit div{
+		width: 280px;
+		height: 40px;
+		background: lightgrey;
+	}
+/*Градиент для border рамки способ 2*/
+	.bord_elem {
+		border: 10px solid transparent;
+		-moz-border-image: -moz-linear-gradient(top left, #DC2903 , #F4F955, #0625F9); /*Указано из какого угла выходит градиент top left*/
+		-webkit-border-image: -webkit-linear-gradient(top left, #DC2903 , #F4F955, #0625F9);/*Указано из какого угла выходит градиент top left*/
+		border-image: linear-gradient(to bottom right, #DC2903 , #F4F955, #0625F9); /*Укразано в какой угол идет градиент to bottom right*/
+		border-image-slice: 1;
+		background: darkgrey;
+		margin-left: 10px;
+	} 
+/*Градиент для border рамки способ 3*/
+	.bord_elem_rainbow {
+		width: 400px;
+		height: 300px;
+		margin: 50px auto 0;
+		font-size: 40px;
+		border-radius: 50% 50% 0 0/80% 80% 0 0;
+		border: double 70px transparent;
+		border-bottom: none;
+		/*border-bottom: none;*/
+		/*-moz-border-image: -moz-radial-gradient(circle,transparent 30%,purple 31%,purple 40%, blue 41%,blue 50%, orange 51%); */
+		/*-webkit-border-image: -webkit-radial-gradient(circle,transparent 30%,purple 31%,purple 40%, blue 41%,blue 50%, orange 51%);*/
+		/*border-image: radial-gradient(circle at bottom center,purple,purple 40%, blue 41%,blue 50%, orange 51%);*/
+		/*border-image: radial-gradient(at bottom, orchid 50%,blue,green,yellow,orange,red);*/
+	/*	background-clip:border;*/
+	/*	border-image-slice: 1;*/
+
+		/* background-image: radial-gradient(white,transparent), 
+	                   radial-gradient(at center bottom, green 10%, gold 11%);*/
+	    background-image: radial-gradient(ellipse 50% 100%  at center bottom, transparent 70%, orchid 71%, orchid 75%, blue 76%, blue 80%, green 81%,
+	    				green 85%, yellow 86%, yellow 90%, orange 91%, orange 95%, red 96%, red 100%, transparent 101%);
+	 	 background-origin: border-box;
+	 	/* background-clip: content-box, border-box;*/
+	 	background-clip: border-box;
+		
+	} 
+	/*.bord_elem_rainbow2 {
+		width: 400px;
+		height: 300px;
+		border-radius: 50% 50% 0 0/80% 80% 0 0;
+		border: 70px solid transparent;
+		border-bottom: none;
+		background-clip: border-box, text;
+ 		-moz-background-clip: border-box, text;
+ 		-webkit-background-clip: border-box, text;
+ 		 background-image: radial-gradient(circle ,transparent, transparent 57%, yellow 58%, red 100%);
+  	}*/
+/*Градиентный текст способ 1*/
+	.grad_text{
+		font-size: 40px;
+		/*color: transparent; Это свойство работает вместо нижнего свойства и с префиксом его же*/
+		-webkit-text-fill-color: transparent; /*!!!Обязательно с вендорными префиксами продублировать*/
+		text-fill-color: transparent;
+		-webkit-background-clip: text; /*!!!Обязательно с вендорными префиксами продублировать*/
+		background-clip: text;
+		background-image: linear-gradient(to top left,pink,orchid,orange,purple); /*!!!!!!!!Обязательно background-image, а не просто background*/
+	}
+/*Градиентный текст способ 1(картинка фоном)*/
+	.grad_text_img{
+		font-size: 40px;
+		/*color: transparent; Это свойство работает вместо нижнего свойства и с префиксом его же*/
+		-webkit-text-fill-color: transparent; /*!!!Обязательно с вендорными префиксами продублировать*/
+		text-fill-color: transparent;
+		-webkit-background-clip: text; /*!!!Обязательно с вендорными префиксами продублировать*/
+		background-clip: text;
+		background-image: url("../images/square.jpg"); /*!!!!!!!!Обязательно background-image, а не просто background*/
+		background-size: cover;
+		background-position: 50% 20%;
+	}
+/*Градиентный текст способ 2*/
+	.grad_text_mix{
+		background: linear-gradient(to top right,orange,deeppink,purple);
+		font-size: 30px;
+	}
+	.grad_text_mix h3{
+		background: white; /*обязательно белый фон, с другим не работает*/
+		mix-blend-mode: screen; /*Свойство наложения цвета текста на фоновый цвет*/
+	}
+/*Стили для теней элемета*/
+	.rainbow{
+		width: 150px;
+		height: 100px;
+		border-radius: 50% 50% 0 0/80% 80% 0 0;
+		margin: 100px auto;
+		box-sizing: border-box;
+		/*box-shadow: 0 -10px 0 10px purple,
+						10px -10px 0 10px blue,
+						15px -15px 0 15px #33d4c5,
+						20px -20px 0 20px green, */
+		box-shadow: -5px -5px 0 5px purple, 
+					5px -5px 0 5px purple,
+					-10px -10px 0 10px blue, 
+					10px -10px 0 10px blue,
+					-15px -15px 0 15px #33d4c5, 
+					15px -15px 0 15px #33d4c5,
+					-20px -20px 0 20px green, 
+					20px -20px 0 20px green,
+					-25px -25px 0 25px yellow, 
+					25px -25px 0 25px yellow,
+					-30px -30px 0 30px orange, 
+					30px -30px 0 30px orange,
+					-35px -35px 0 35px red, 
+					35px -35px 0 35px red;
+
+	}
+	.rainbow_2{
+		width: 150px;
+		height: 100px;
+		border-radius: 50% 50% 0 0/80% 80% 0 0;
+		margin: 0 auto;
+		margin-top: 150px; 
+		box-shadow: 0 -10px 0 10px purple,
+						0 -15px 0 20px blue,
+						0 -20px 0 30px #33d4c5,
+						0 -25px 0 40px green,
+						0 -30px 0 50px yellow,
+						0 -35px 0 60px orange,
+						0 -40px 0 70px red;
+		position: relative;
+		}
+	.rainbow_2:before{
+		position: absolute;
+		content: "";
+		left: -80px;
+		top:100%;
+		display: block;
+		width: 310px;
+		height: 40px;
+		background-image: url("../images/horizont.jpg");
+		background-position: 50%;
+		background-size: contain;
+	}
+	.heaven{
+		text-align: left;
+		padding-top: 300px;
+		padding-bottom: 100px;
+	}
+	.sun{
+		display: inline-block;
+		margin-left: 100px; 
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		background: orange;
+		box-shadow: 0 0 10px 10px orange,
+					0 0 30px 20px yellow;
+	}
+	.heaven:hover .sun{ 
+		transform: translate(300px,-180px);
+		transition: transform 3s linear ;
+	}
+
+	.moon{
+		display: inline-block;
+		margin-left: 500px; 
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		box-shadow: 30px 10px 0 10px yellow,
+					40px 20px 10px 5px #73b7cb45;
+	}
+/*Стили для теней текста*/
+	.poem{
+		display: inline-block;
+	}
+	.night{
+		padding: 0 20px;
+		font-size: 30px;
+		color: black;
+		display: table-cell;
+		text-align: left;
+ 		margin: 0 auto; /* для центрирования display: table; не нужно указывать ширину блока, она рассчитывается самостоятельно */ 
+  		white-space: pre-line; /* не нужен <br> */ 
+  		word-wrap: break-word; /* чтобы слова переносились на маленьком экране */ 
+	}
+	.shadow_elem{
+		text-shadow: 0.3px 0.3px 0.5px;
+	}
+	.shadow_elem_2{
+		text-shadow: 0.3px 0.9px 2px rgba(0,0,0,0.3);
+	}
+/*Стили для рисования CSS/файл draw_elem.html*/
+
+/*Простые рисунки*/
+	.easy_elem>div{
+		margin: 50px auto;
+		text-align: center;
+	}
+	.easy_elem>div:first-child{
+		margin: 0 auto;
+	}
+
+/*Парус треугольник с  выпуклой загругленной стороной*/
+	.parus_1{
+		width: 100px;
+		height: 100px;
+		border-radius: 100px 0 0 0/100px 0 0 0;
+		background: black;
+	}
+	.parus_2{
+		width: 100px;
+		height: 100px;
+		border-radius: 100px 0 0 0/100px 0 0 0;
+		border:1px solid red;
+	}
+
+/*Паралелограмм с закругленной стороной*/
+	.pizza_1{
+		width: 140px;
+		height: 80px;
+		transform: skew(-55deg);
+		border-top-right-radius:100%;
+		background: orange;
+	}
+	.pizza_2{
+		width: 210px;
+		height: 120px;
+		transform: skew(-45deg);
+		background: radial-gradient(ellipse 100% 120% at left bottom, orange, orange 69%, transparent 70%);
+	}
+
+/*Треугольник с  вогнутой загругленной стороной*/
+	.out{
+		width: 100px;
+		height: 100px;
+		overflow: hidden;
+		display: inline-block;
+	}
+
+	.inn{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		box-shadow: 73px 77px 20px 20px red;
+	}
+
+	.triangle{
+		display: inline-block;
+		margin: 0 50px;
+		width: 100px;
+		height: 100px;
+	}
+	.tr_1{
+		background: radial-gradient(circle farthest-corner at top right , transparent, transparent 70%, red 71%);
+	}
+	.tr_2{
+		transform: skewY(45deg);
+		background: radial-gradient(ellipse 150% 150% at bottom right , transparent, transparent 70%, red 71%);
+	}
+	.tr_3{
+		transform: skew(-45deg);
+		background: radial-gradient(circle farthest-corner at bottom right , transparent, transparent 70%, red 71%);
+	}
+	.tr_4{
+		transform: skew(45deg);
+		background: radial-gradient(circle farthest-corner at bottom right , transparent, transparent 70%, red 71%);
+	}
+/*Вогнутый элемент*/
+	.concave{
+		width: 200px;
+	    height: 200px;
+	    background: red;
+	    background:
+	      radial-gradient(circle 20px at -20% 50%,transparent,transparent 100px,red 101px),
+	      radial-gradient(circle 20px at 120% 50%,transparent,transparent 100px,red 101px);
+	    background-size:100px 200px, 100px 200px;
+	    background-position:0 0,100% 0;
+	    background-repeat:no-repeat;
+	}
+/*Стрелки управления*/
+	.arrows{
+		width: 200px;
+	}
+	.arrow_down{
+		display: inline-block; /*Что б я смогла задать ей ширину и высоту*/
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: lightgrey;
+		position: relative;
+	}
+	.arrow_down:before{
+		display: block;
+		content: "";
+		position: absolute;
+		left: 25%;
+		top:25%;
+		width: 25px;
+		height: 25px;
+		border-left: 1px solid white;
+		border-bottom: 1px solid white;
+		background: transparent;
+		transform:rotate(-45deg) ;
+	}
+	.arrow_down:hover{
+		transform: scale(1.2);
+		background: grey;
+	}
+
+	.arrow_right{
+		display: inline-block; /*Что б я смогла задать ей ширину и высоту*/
+		/*width: 50px;
+		height: 50px;*/
+		position: relative;
+		vertical-align: top;
+	}
+	.arrow_right:before{
+		display: block;
+		content: "";
+		position: absolute;
+		left: 0;
+		top:0;
+		width: 25px;
+		height: 25px;
+		border-left: 1px solid red;
+		border-bottom: 1px solid red;
+		background: transparent;
+		transform:rotate(-135deg) ;
+	}
+	.arrow_right:hover:before{
+		/*transform: rotate(-135deg) scale(2);*/
+		border-bottom: double black;
+		border-left:double grey; 
+	}
+/*Информационный блок всплывающий?*/
+	.info_block_1{
+		display: inline-block; /*Сделала, что б тянулся по контенту внутри по ширине*/
+		font-size: 40px;
+		padding: 0 5px;
+		line-height: 50px;
+		background: grey;
+		position: relative;
+	}
+	.info_block_1:after{
+		width: 20px;
+		position: absolute;
+		left: 20px;
+		top:100%;
+		content: "";
+		border-left: 20px solid grey;
+		border-bottom: 10px solid transparent;
+		display: block;
+	}
+	.info_block_2{
+		display: inline-block; /*Сделала, что б тянулся по контенту внутри по ширине*/
+		margin-left: 20px;
+		font-size: 40px;
+		padding: 0 5px;
+		line-height: 50px;
+		background: grey;
+		position: relative;
+		/*z-index: 4; Не сработает относительно .info_block_2:before, так как они не на одном уровне вложенности*/
+	}
+	.info_block_2:before{
+		width: 25px;
+		height: 20px;
+		position: absolute;
+	/*	z-index: 2;*/
+		left: 20px;
+		top:79%;
+		content: "";
+		display: block;
+		transform: skewY(-39deg);
+		background: linear-gradient(to top right, grey 55%, transparent 56%);
+		box-shadow: -1px 1px 1px 0 rgba(0,0,0,0.3);
+		/*или можно сделать как border*/
+	/*	border-left: 2px solid rgba(0,0,0,0.3);
+		border-bottom: 2px solid rgba(0,0,0,0.3);*/
+	}
+/*Радуга*/
+	.border_rainbow{
+		width: 200px;
+		height: 150px;
+		background: transparent;
+		border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+		border: 10px solid orchid;
+		box-sizing: border-box;
+	/*	outline:10px solid blue; Нельзя скруглить*/
+		position: relative;
+		z-index: 4;
+		border-bottom: none;
+	}	
+	
+	.border_rainbow:after{
+		display: block;
+		width: 200px;
+		height: 150px;
+		background: transparent;
+		border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+		border: 10px solid green;
+		/*outline:10px solid yellow; Нельзя скруглить*/
+		position: absolute;
+		content: "";
+		left: -20px;
+		top:-20px;
+		z-index: 3;
+		border-bottom: none;
+	}
+	.border_rainbow:before{
+		display: block;
+		width: 200px;
+		height: 150px;
+		background: transparent;
+		border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+		border: 20px solid orange;
+		/*outline:10px solid red; Нельзя скруглить*/
+		position: absolute;
+		content: "";
+		z-index: 2;
+		left: -30px;
+		top: -30px;
+		border-bottom: none;
+	}
+	.elem_fig{
+		width: 200px;
+		margin: 0 auto;
+	}
+	.elem_fig div{
+		margin: 50px auto;
+	}
+	
+	.round_arrow{
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		border-top:20px solid green;
+		border-right:20px solid transparent;
+		transform: rotate(35deg);
+		position: relative;
+	}
+	.round_arrow:before{
+		display: block;
+		content: "";
+		position: absolute;
+		left:73%;
+		top:0;
+		width: 0;
+		border:30px solid transparent;
+		border-top:30px solid green;
+		border-bottom: none;
+		transform: rotate(-45deg);
+	}
+
+	.star_elem{
+		
+		width: 0;
+		height: 0;
+		border-top:50px solid orange;
+		border-left:50px solid transparent;
+		border-right:50px solid transparent;
+		position: relative;
+	}
+	.star_elem:before{
+		width: 0;
+		height: 0;
+		border-top:50px solid orange;
+		border-left:50px solid transparent;
+		border-right:50px solid transparent;
+		position: absolute;
+		content: "";
+		display: block;
+		left:-52px;
+		top:-45px;
+		transform: rotate(65deg);
+	}
+	.star_elem:after{
+		width: 0;
+		height: 0;
+		border-top:50px solid orange;
+		border-left:50px solid transparent;
+		border-right:50px solid transparent;
+		position: absolute;
+		content: "";
+		display: block;
+		left:-48px;
+		top:-45px;
+		transform: rotate(-65deg);
+	}
+	.infinity{
+		width: 80px;
+		height: 80px;
+		margin: 50px;
+		border-radius: 50% 50% 0 50%/50% 50% 0 50%;
+		border:20px solid black;
+		position: relative;
+		transform: rotate(-45deg);
+	}
+	.infinity:after{
+		width: 80px;
+		height: 80px;
+		border-radius: 0 50% 50% 50%/0 50% 50% 50%;
+		border:20px solid black;
+		position: absolute;
+		content: "";
+		display: block;
+		left:100%;
+		top:100%;
+	}
+	.heart{
+		
+		width: 100px;
+		height: 200px;
+		background: red;
+		border-radius: 50% 50% 0 0/50% 30% 0 0;
+		position: relative;
+		transform: rotate(-45deg);
+	}
+	.heart:after{
+		width: 100px;
+		height: 200px;
+		background: red;
+		border-radius: 50% 50% 0 0/30% 50% 0 0; 
+		position: absolute;
+		content: "";
+		display: block;
+		left:50%;
+		top:25%;
+		transform: rotate(90deg);
+	}
+
+	.octagon{
+		width: 100px;
+		height: 100px;
+	
+		background: transparent;
+		position: relative;
+		transform: rotate(45deg);
+		overflow: hidden;
+	}
+
+	.octagon:after{
+		width: 100px;
+		height: 100px;
+		margin: 50px;
+		background: blue;
+		position: absolute;
+		content: "";
+		display: block;
+		left:-50%;
+		top:-50%;
+		transform: rotate(-45deg);
+	}
+	.yin_yang{
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background: linear-gradient(rgba(255,255,255,1) 50%, rgba(0,0,0,1) 51%);
+		position: relative;
+	}
+	.yin_yang:before{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: radial-gradient(at center,rgba(0,0,0,1) 20% ,rgba(255,255,255,1) 21%);
+		position: absolute;
+		content: "";
+		display: block;
+		left:0;
+		top:25%;
+	}
+	.yin_yang:after{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: radial-gradient(at center,rgba(255,255,255,1) 20% ,rgba(0,0,0,1) 21%);
+		position: absolute;
+		content: "";
+		display: block;
+		left:50%;
+		top:25%;
+	}
+
+	.little_square{
+		width: 40px;
+		height: 100px;
+		background: grey;
+		position: relative;
+	}
+	.little_square:after{
+		width: 20px;
+		height: 20px;
+		background: red;
+		border-radius: 50%;
+		box-shadow: 0 30px 0 0 orange,
+					0 60px 0 0 green;
+		position: absolute;
+		content: "";
+		display: block;
+		left:25%;
+		top:10%;
+	}
+	.button_elem{
+		display:inline-block;
+		font-size: 40px;
+		height: 50px;
+		line-height: 50px;
+		padding:0 5px;
+		background: white;
+		box-shadow: 0 0 1px 1px rgba(128,128,128,0.3);
+		border-top:3px solid transparent;
+		border-bottom:3px solid transparent;
+		box-sizing: border-box;
+		border-image: linear-gradient(to right, #ee0953 0%, #ff6b00 100%);
+		-webkit-border-image: linear-gradient(to right, #ee0953 0%, #ff6b00 100%);
+		background-clip: border;
+		-webkit-background-clip: border;
+		border-image-slice: 1;
+		-webkit-border-image-slice: 1;
+		position: relative;
+	}
+	.button_elem:before, .button_elem:after{
+		width:3px;
+		height:0;
+		position: absolute;
+		content: "";
+		display: block;
+		top:50%;
+		background: linear-gradient(to top, #ee0953 0%, #ff6b00 100%);
+	}
+	.button_elem:before{
+		left:0;
+	}
+	.button_elem:after{
+		right:0;
+	}
+	.button_elem:hover.button_elem:before{
+		top:-3px;
+		height:50px;
+		transition: all 0.5s linear;
+	}
+	.button_elem:hover.button_elem:after{
+		top:-3px;
+		height:50px;
+		transition: all 0.5s linear;
+	}
+	.ribbons{
+		width:1000px;
+		margin: 0 auto;
+		/*font-size: 0;*/
+	}
+	.ribbons div{
+		margin: 50px 20px;
+		display: inline-block;
+		width: 400px;
+		height: 200px;
+		background: red;
+		font-size: 40px;
+		text-transform: uppercase;
+		position: relative;
+		z-index: 2;
+	}
+	.ribon_elem_1:after{
+		width: 150px;
+		height: 50px;
+		border-radius: 0 5% 0 0/0 20% 0 0;
+		position: absolute;
+		content: "";
+		display: block;
+		top:0;
+		left: 15%;
+		margin-top:-10px;
+		background: green;
+	}
+	.ribon_elem_1:before{
+		width: 20px;
+		height: 10px;
+		border-radius: 75% 0 0 0;
+		position: absolute;
+		content: "";
+		display: block;
+		top:0;
+		left: 12%;
+		margin-top:-10px;
+		background: radial-gradient(circle at left bottom , #065106 51%, green 52%);
+	}
+
+	.ribon_elem_2:after{
+		width: 50px;
+		height: 150px;
+		border-radius: 20% 0 0 0/ 5% 0 0 0;
+		position: absolute;
+		content: "";
+		display: block;
+		top:10%;
+		left: 0;
+		margin-left:-10px;
+		background: green;
+	}
+	.ribon_elem_2:before{
+		width: 10px;
+		height: 15px;
+		border-radius: 0 0 0 50%;
+		position: absolute;
+		z-index: 1;
+		content: "";
+		display: block;
+		bottom:10%;
+		left: 0;
+		margin-left:-10px;
+		background:  radial-gradient(ellipse 200% 85% at right center , #065106 32%, green 33%);
+	}
+	figure{
+		position: relative;
+		display: inline-block;
+		width: 500px;
+	}
+	.ribon_3_st{
+		width: 150px;
+		height: 0;
+		border-bottom:30px solid green;
+		border-left:10px solid transparent;
+		border-right:10px solid transparent;
+		position: absolute;
+		z-index: 3;
+		content: "";
+		display: block;
+		top:70px;
+		left: 0;
+		transform: rotate(-45deg);
+		/*	background: green; Обязательно убрать для элемента*/
+	}
+	.ribon_3_st:before{
+		position: absolute;
+		z-index: 3;
+		content: "";
+		display: block;
+		top:3px;
+		left: 0;
+		width: 150px;
+		border-top:2px dashed white;
+		background: transparent;
+	}
+	.ribon_3_st:after{
+		position: absolute;
+		z-index: 3;
+		content: "";
+		display: block;
+		top:25px;
+		left: -6px;
+		width: 163px;
+		border-bottom:2px dashed white;
+		background: transparent;
+	}
+
+	.ribon_elem_3:after{
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		content: "";
+		display: inline-block;
+		top:84px;
+		left:-14px;
+		background: linear-gradient(to right, #065106 48%,transparent 49%);
+	}
+	
+   .ribon_elem_3:before{
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		position: absolute;
+		content: "";
+		display: block;
+		top:-14px;
+		left: 84px;
+		background: linear-gradient(to bottom, #065106 48%,transparent 49%);
+	}
+
+
+
+
+/*Сложные рисунки*/
+		
+/*Круг-индикатор*/
+	.indicator_percent_total{
+		width: 315px;
+		height: 315px;
+		border-radius: 50%;
+		margin: 100px auto;
+		overflow: hidden;
+		position: relative;
+	}
+	.indicator_percent_1{
+		position: absolute;
+		transform:rotate(-54deg);
+		top:16%;
+		left:16%;
+	}
+	.indicator_percent_1:after{
+		position: absolute;
+		content: "";
+		left: 0; 
+		top:0;
+		display: block;
+		width: 165px;
+		height: 150px;
+		transform: skewX(-18deg);
+		border-radius: 0 100% 0 0/0 100% 0 0;
+		
+		background:radial-gradient( ellipse 100% 105% at left bottom,transparent 65%, #64f4df 66%);
+	}
+	.indicator_percent_1:hover:after{
+		background: linear-gradient( to top right,#64f4df 60%, transparent 61%);
+		outline: 1px solid #64f4df;
+		/*background:radial-gradient( ellipse 100% 105% at left bottom,#64f4df 46%, transparent 47%);*/
+	}
+	.indicator_percent_2{
+		position: absolute;
+		transform:rotate(18deg);
+		top:7%;
+		left:72%;
+	}
+	.indicator_percent_2:after{
+		position: absolute;
+		content: "";
+		left: 0; 
+		top:0;
+		display: block;
+		width: 165px;
+		height: 150px;
+		transform: skewX(-18deg);
+		border-radius: 0 100% 0 0/0 100% 0 0;
+		
+		background: #67f464;
+		background:radial-gradient( ellipse 100% 105% at left bottom,transparent 65%, #67f464 66%);
+	}
+	.indicator_percent_2:hover:after{
+		background: linear-gradient( to top right,#67f464 60%, transparent 61%);
+		outline: 1px solid #67f464;
+	}
+	.indicator_percent_3{
+		position: absolute;
+		transform:rotate(90deg);
+		top:58%;
+		left:98%;
+	}
+	.indicator_percent_3:after{
+		position: absolute;
+		content: "";
+		left: 0; 
+		top:0;
+		display: block;
+		width: 165px;
+		height: 150px;
+		transform: skewX(-18deg);
+		border-radius: 0 100% 0 0/0 100% 0 0;
+		background: #ecf464;
+		background:radial-gradient( ellipse 100% 105% at left bottom,transparent 65%, #ecf464 66%);	
+	}
+	.indicator_percent_3:hover:after{
+		background: linear-gradient( to top right,#ecf464 60%, transparent 61%);
+		outline: 1px solid #ecf464;
+	}
+	.indicator_percent_4{
+		position: absolute;
+		transform:rotate(90deg) rotateX(180deg);
+		top:58%;
+		left:2%;
+
+	}
+	.indicator_percent_4:after{
+		position: absolute;
+		content: "";
+		left: 0; 
+		top:0;
+		display: block;
+		width: 165px;
+		height: 150px;
+		transform: skewX(-18deg);
+		border-radius: 0 100% 0 0/0 100% 0 0;
+	
+		background: #f4c764;
+		background:radial-gradient( ellipse 100% 105% at left bottom,transparent 65%, #f4c764 66%);
+	}
+	.indicator_percent_4:hover:after{
+		background: linear-gradient( to top right,#f4c764 60%, transparent 61%);
+		outline: 1px solid #f4c764;
+	}
+	.indicator_percent_5{
+		position: absolute;
+		transform:rotate(-18deg) rotateY(180deg);
+		top:7%;
+		left:28%;
+	}
+	.indicator_percent_5:after{
+	position: absolute;
+		content: "";
+		left: 0; 
+		top:0;
+		display: block;
+		width: 165px;
+		height: 150px;
+		transform: skewX(-18deg);
+		border-radius: 0 100% 0 0/0 100% 0 0;
+		background: #f47864;
+		background:radial-gradient( ellipse 100% 105% at left bottom,transparent 65%, #f47864 66%);
+	}
+	.indicator_percent_5:hover:after{
+			background:radial-gradient( ellipse 100% 105% at left bottom,#f47864 46%, transparent 47%);
+			outline: 1px solid #f47864;
+	}
+/*	.rad_elem {
+	background: #58a;
+	width: 100px;
+	height: 100px;
+	background:	radial-gradient(circle at top left, transparent 30px, #58a 0) top left,  за скобками указан background-position
+	            radial-gradient(circle at top right, transparent 30px, #58a 0) top right,
+	            radial-gradient(circle at bottom right, transparent 30px, #58a 0) bottom right,
+	            radial-gradient(circle at bottom left, transparent 30px, #58a 0) bottom left,
+	            radial-gradient(circle at center, transparent 30px, #58a 0) center;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+}*/
+/*	.rad_elem {
+	background: #58a;
+	width: 150px;
+	height: 100px;
+	background: radial-gradient(ellipse 50% 110% at top left, transparent 100%, #58a 101%) top left,
+	            radial-gradient(ellipse 50% 110% at top right,  transparent 100%, #58a 101%) top right,
+	            radial-gradient(ellipse 50% 110% at bottom right,  transparent 100%, #58a 101%) bottom right,
+	            radial-gradient(ellipse 50% 110% at bottom left,  transparent 100%, #58a 101%) bottom left,
+	            radial-gradient(circle at center, transparent 45%, #58a 46%,#58a 84%,transparent 85%) center;
+	     
+	background-size: 50% 50%;
+	background-blend-mode: multiply;
+	background-repeat: no-repeat;
+}*/
+/*.rad_elem {
+	width: 250px;
+	height: 100px;
+	background: #58a;
+	background: radial-gradient(ellipse 50% 99% at bottom left, transparent 100%, #58a 101%) bottom left,
+	            radial-gradient(ellipse 50% 99% at bottom right, transparent 100%, #58a 101%) bottom right,
+	            radial-gradient(circle at 50% 0,red 20%, #58a 21%) 50% 100%;
+	background-repeat: no-repeat;
+	background-size: 50% 100%;
+	background-blend-mode: multiply;
+
+}*/
+	.screw_helix{
+		width: 150px;
+		height: 50px;
+		margin: 100px;
+		display: inline-block;
+		position: relative;
+		background-image:repeating-linear-gradient(-36deg,black 2px,grey 3px, grey 13px);
+		box-shadow: -50px 0 grey;
+		border-left: 2px solid black;
+	}
+	.screw_helix:before, .screw_helix:after{
+		width: 50px;
+		height: 50px;
+		border-radius: 100% 0 0 0/100% 0 0 0;
+		background: grey;
+		position: absolute;
+		display: block;
+		content: "";
+		left: -70px;
+		top:-30px;
+		}
+	.screw_helix:after{
+		border-radius: 0 0 0 100%/0 0 0 100%;
+		top:30px;
+	}
+
+
+
+
+	.screw_nut {
+		width: 140px;
+		height: 180px;
+		margin: 50px 0 50px 50px;
+		display: inline-block;
+		background: #58a;
+		background:radial-gradient(circle at 50% 50%,transparent 35%,#58a 36%,#58a 65%,transparent 66%) 50% 50%,
+				radial-gradient(ellipse 140% 60% at 50% 50%,transparent 37%, #58a 38%, #58a 60%,transparent 61%) 50% 50%,
+				radial-gradient(ellipse 250% 40% at top center,transparent 20%, #58a 21%,#58a 66%,transparent 67%) top center,
+				radial-gradient(ellipse 250% 40% at bottom center,transparent 20%, #58a 21%,#58a 66%,transparent 67%) bottom center;
+
+		position: relative;
+	}
+	.screw_nut:after,.screw_nut:before{
+		content:"";
+		display: block;
+		width: 50px;
+		height: 180px;
+		position: absolute;
+		top:0;
+		background: #58a;
+	}
+	.screw_nut:after{
+		left: 100%;
+		background: #58a;
+		background: radial-gradient(ellipse 100% 100% at top right, transparent 100%, #58a 101%) top right,
+		            radial-gradient(ellipse 100% 100% at bottom right, transparent 100%, #58a 101%) bottom right;
+		background-size: 100% 50%;
+		background-repeat: no-repeat;
+	}
+	.screw_nut:before{
+		right: 100%;
+		background: radial-gradient(ellipse 100% 100% at top left, transparent 100%, #58a 101%) top left,
+		            radial-gradient(ellipse 100% 100% at bottom left, transparent 100%, #58a 101%) bottom left;
+		background-size: 100% 50%;
+		background-repeat: no-repeat;
+	}
+
+	.wrench{
+		margin: 0 100px 100px 100px;
+		width: 100px;
+		height: 50px;
+		display: inline-block;
+		position: relative;
+		border-radius: 40%;
+		background: #616161;
+		background:  radial-gradient(ellipse 50% 100% at top center, transparent 65%, #616161 66%) top center;
+		/*box-shadow: 0 10px 0 0px;*/
+		transform:rotate(-23deg) translateY(-100px);
+		
+	}
+	.wrench:before{
+		width: 40px;
+		height: 150px;
+		position: absolute;
+		content: "";
+		display: block;
+		left:50%;
+		transform:translate(-50%);
+		top:80%;
+		background:radial-gradient(ellipse 40% 300% at left center,transparent 15%, #616161 16%,#616161 100%) left center,
+				radial-gradient(ellipse 40% 300% at right center,transparent 15%, #616161 16%,#616161 100%) right center;
+				background-size: 50% 100%;
+		background-repeat: no-repeat;
+	}
+	.wrench:after{
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		content: "";
+		display: block;
+		left:50%;
+		transform:translate(-50%);
+		top:180px;
+		background: yellow;
+		border-radius: 45%;
+		background: #616161;
+		background:  radial-gradient(circle at center, transparent 45%, #616161 46%) center;
+	}
+	.vessel{
+		margin-left: 200px;
+		padding-bottom: 100px;
+	}
+	.vessel .sail{
+		width: 200px;
+		height: 200px;
+		background: yellow;
+		border-radius: 45%;
+		box-shadow: -50px 0 0px -10px #c6dbdd ;
+		background: linear-gradient(to right, transparent 24%, grey 25%,grey 27%,transparent 28%);
+		position: relative;
+		transform: rotate(15deg) translate(145px,17px);
+	}
+/*	.vessel .sail:before{
+		width: 180px;
+		height: 180px;
+		position: absolute;
+		content: "";
+		display: block;
+		left:-50%;
+		top:12%;
+		background: yellow;
+		background: radial-gradient(ellipse 100% 75% at top left,  transparent 135%, black 136%);
+		transform: rotate(-68deg);
+	}*/
+	.vessel .sail:before{
+		width: 90px;
+		height: 140px;
+		position: absolute;
+		content: "";
+		display: block;
+		/*left: 100%;
+		top:30%;*/
+		left:5%;
+		top:20%;
+		background: yellow;
+		background: radial-gradient(ellipse 95% 98% at top left,  transparent 100%, #c6dbdd 101%);
+		transform: rotate(-28deg);
+	}
+	.vessel .sail:after{
+		width: 30px;
+		position: absolute;
+		content: "";
+		display: block;
+		left:27%;
+		top:5%;
+		border-top:12px solid #eb6f6f;
+		border-bottom:12px solid #eb6f6f;
+		border-right:10px solid transparent;
+	}
+	.vessel .boat{
+		width: 100px;
+		height: 90px;
+		background: brown;
+		transform: skewY(15deg);
+		background: radial-gradient(ellipse 95% 85% at bottom left,  transparent 100%, brown 101%);
+/*		box-shadow: -20px 0px 0 -10px black;*/
+		position: relative;
+	}
+	.vessel .boat:after{
+		width: 200px;
+		height: 90px;
+		background: black;
+		background: radial-gradient(ellipse 105% 320% at bottom right,  transparent 17%, brown 20%);
+		position: absolute;
+		content: "";
+		display: block;
+		left:100%;
+		top:0;
+	}
+	.vessel .boat:before{
+		width: 20px;
+		height: 32px;
+		background: brown;
+		border-radius: 0 0 100% 0/0 0 100% 0;
+		box-shadow: -1px 4px 5px 1px brown;
+		position: absolute;
+		content: "";
+		display: block;
+		left:298%;
+		top:0;
+	}

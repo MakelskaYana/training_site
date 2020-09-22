@@ -1,0 +1,53 @@
+<!DOCTYPE html> <!-- Синтаксис документа соответвует HTML5 версии -->
+<html lang="en"> <!-- Обязательный атрибут lang для валидности -->
+	
+	<head> <!-- Служебная секция --> 
+		<meta charset="utf-8"> <!-- Обязательный атрибут charset. Кодировка, как браузеру читать текст -->
+ 		<title>Site float_blocks</title> <!-- Обязательный атрибут title. Название сайта, отображаемое на вкладке вверху -->
+  		<link rel = "stylesheet" href="../style/styleForFloat.css"> <!-- Подключение таблицы внешних стилей свойств элементов из внешнего файла styleForFloat.css. rel = "stylesheet" описание,что ссылка соответсвует стилям страницы stylesheet.  -->
+ 	</head>
+ 	
+ 	<body> 
+ 		<!-- Не правильно сделала ниже, не разделила на отдельные блоки (5 строк),а потом в каждом из них делить дальше надо. Файл float_block правильный. -->
+ 		<div class="wrapper clearfix"> <!-- Служебный класс clearfix, для добавления псевдоэлемента ::after родителю float элементов wrapper. -->
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks third"></div>
+ 		    <div class="float_blocks fourth"></div>
+	 		<div class="float_blocks fourth"></div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks first">
+	 			<div class="float_blocks fifth"></div>
+	 			<div class="float_blocks fifth"></div>
+	 			<div class="float_blocks fourth"></div>
+	 		</div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks second">
+	 			<div class="float_blocks fourth">
+	 				<div class="float_blocks seventh"></div>
+	 				<div class="float_blocks seventh"></div>
+	 				<div class="float_blocks sixth"></div>
+	 			</div>
+	 			<div class="float_blocks fourth"></div>
+	 			<div class="float_blocks third"></div>
+	 		</div>
+ 			<div class="float_blocks first"></div>
+ 			<div class="float_blocks second">
+ 				<div class="float_blocks third"></div>
+ 				<div class="float_blocks third"></div>
+ 			</div>
+ 			<div class="float_blocks first">
+ 				<div class="float_blocks ninth"></div>
+ 				<div class="float_blocks ninth">
+ 					<div class="float_blocks eleventh"></div>
+ 					<div class="float_blocks eleventh"></div>
+ 					<div class="float_blocks tenth"></div>
+ 				</div>
+ 				<div class="float_blocks eighth"></div>
+ 				<div class="float_blocks eighth"></div>
+ 			</div>
+ 		</div>
+ 	</body> 
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html> <!-- Синтаксис документа соответвует HTML5 версии -->
+<html lang="en"> <!-- Обязательный атрибут lang для валидности -->
+	
+	<head> <!-- Служебная секция --> 
+		<meta charset="utf-8"> <!-- Обязательный атрибут charset. Кодировка, как браузеру читать текст -->
+ 		<title>Site inline-block</title> <!-- Обязательный атрибут title. Название сайта, отображаемое на вкладке вверху -->
+  		<link rel = "stylesheet" href="../style/styleForInlineBlocks.css"> <!-- Подключение таблицы внешних стилей свойств элементов из внешнего файла styleForBlocks.css. rel = "stylesheet" описание,что ссылка соответсвует стилям страницы stylesheet.  -->
+ 	</head>
+ 	
+ 	<body> 
+
+ 		<div class="wrapper">
+ 			<a href="table_cell.html"> Перейти к table-cell </a>
+ 			<div class="container"> <!-- Создала отдельные обертки с классом container. И так все правильно работает, если их убрать. Потому что каждому внутреннему элементу задала ширину и они все стоят на своих местах. Можно убрать,но так лучше видно, как они расположены по рядам,и это правильно!!!!!!!! -->
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 			</div>
+ 			<div class="container">
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 				<div class="second inline_block_elem"> <!-- Важно!!! Нужно задавать ширину родителю блочного элемента,ОБЯЗАТЕЛЬНО для блока-столбца ширину.
+ 				А не самому блочному элементу, который растягивается по родителю!!! -->
+ 					<div class="third">
+ 					<!-- Text -->	<!-- растянется по родителю,задаю только высоту или пишу контент -->
+	 				</div>
+	 				<div>
+	 					<div class="fourth inline_block_elem">
+	 					<!-- Text -->	
+	 					</div>	
+	 					<div class="fourth inline_block_elem">
+	 					<!-- Text -->	
+	 					</div>
+	 				</div>
+ 				</div>
+ 			</div>
+ 			<div class="container">
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 				<div class="inline_block_elem" style="width: 400px;">  <!-- Важно!!! Нужно задавать ширину родителю блочного элемента,ОБЯЗАТЕЛЬНО для блока-столбца ширину.-->
+ 					<div>
+	 					<div class="fifth inline_block_elem">
+	 					<!-- Text -->
+	 					</div>
+	 					<div class="fifth inline_block_elem">
+	 					<!-- Text -->
+	 					</div>
+	 				</div>	
+	 				<div style="padding: 75px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+	 				<!-- Text -->	
+	 				</div>	
+	 			</div>
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 			</div>
+ 			<div class="container">
+ 				<div class="second inline_block_elem" style="vertical-align: top;"> <!-- Можно задать один раз в CSS  для эл-тов с классом inline_block_elem. -->
+ 					<div>
+ 						<div class="inline_block_elem" style="vertical-align: top;width: 400px;">
+ 							<div>
+ 								<div class="seventh inline_block_elem">
+ 								<!-- Text -->		
+ 								</div>
+ 								<div class="seventh inline_block_elem">
+ 								<!-- Text -->		
+ 								</div>
+ 							</div>
+ 							<div style="padding: 37.5px 0px;"> <!-- растянется по родителю,задаю только высоту -->">
+ 							<!-- Text -->	
+ 							</div>
+ 						</div>
+ 						<div class="fourth inline_block_elem">
+ 						<!-- Text -->	
+ 						</div>
+ 					</div>
+ 					<div style="padding: 75px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+ 					<!-- Text -->	
+ 					</div>
+ 				</div>
+ 				<div class="first inline_block_elem">
+ 				<!-- Text -->	
+ 				</div>
+ 			</div>
+ 			<div class="container">
+ 				<div class="inline_block_elem" style="width: 800px;">
+ 					<div style="padding: 75px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+ 					<!-- Text -->	
+ 					</div>	
+ 					<div style="padding: 75px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+ 					<!-- Text -->	
+ 					</div>	
+ 				</div>
+ 				<div class="inline_block_elem" style="vertical-align: top;width:400px;"> <!-- В пределах одной строки по умолчанию все элементы выровнены по базовой линии этой строки. Эта базовая линия строки — величина переменная, и её позиция меняется в зависимости от выравнивания и размеров включаемых элементов.Поэтому меняю сама на  top. -->
+	 				<div>
+	 					<div class="ninth inline_block_elem">
+	 					<!-- Text -->
+	 					</div>
+	 					<div class="inline_block_elem" style="vertical-align:top;"> <!-- В пределах одной строки по умолчанию все элементы выровнены по базовой линии этой строки. Эта базовая линия строки — величина переменная, и её позиция меняется в зависимости от выравнивания и размеров включаемых элементов.Поэтому меняю сама на  top.-->
+	 						<div>
+			 					<div class="eleventh inline_block_elem">
+			 					<!-- Text -->
+			 					</div>
+			 					<div class="eleventh inline_block_elem">
+			 					<!-- Text -->
+			 					</div>
+			 				</div>	
+			 				<div  style="padding: 25px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+			 				<!-- Text -->
+			 				</div>	
+	 					</div>
+	 				</div>	
+	 				<div style="padding: 50px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+	 				<!-- Text -->
+	 				</div>	
+	 				<div style="padding: 50px 0px;"> <!-- растянется по родителю,задаю только высоту -->
+	 				<!-- Text -->
+	 				</div>	
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</body>
+ </html>

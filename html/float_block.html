@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- Синтаксис документа соответвует HTML5 версии -->
+<html lang="en"> <!-- Обязательный атрибут lang для валидности -->
+	
+	<head> <!-- Служебная секция --> 
+		<meta charset="utf-8"> <!-- Обязательный атрибут charset. Кодировка, как браузеру читать текст -->
+ 		<title>Site float_blocks</title> <!-- Обязательный атрибут title. Название сайта, отображаемое на вкладке вверху -->
+  		<link rel = "stylesheet" href="../style/styleForFloat.css"> <!-- Подключение таблицы внешних стилей свойств элементов из внешнего файла styleForFloat.css. rel = "stylesheet" описание,что ссылка соответсвует стилям страницы stylesheet.  -->
+ 	</head>
+ 	
+ 	<body> 
+ 		<div class="wrapper">
+ 			<div class="parent clearfix">
+	 			<div class="float_blocks first"></div>
+	 			<div class="float_blocks first"></div>
+	 			<div class="float_blocks first"></div>
+ 			</div>
+ 			<div class="parent clearfix">
+	 			<div class="float_blocks first"></div>
+	 			<div class="float_blocks second">
+	 				<div class="third"></div>
+	 				<div class="clearfix">
+		 				<div class="float_blocks fourth"></div>
+		 				<div class="float_blocks fourth"></div>
+	 				</div>	
+	 			</div>
+	 		</div>
+	 		<div class="parent clearfix">
+		 		<div class="float_blocks first"></div>
+		 		<div class="float_blocks">
+	 				<div class="clearfix" > <!-- Добавляем снова распорку родителю float элементов внутри, что б элементы всплыли и под ними был просто блочный элемент с классом fourth ниже.  -->
+	 					<div class="float_blocks fifth"></div>
+	 					<div class="float_blocks fifth"></div>
+	 				</div>
+	 				<div class="fourth"></div>
+	 			</div>
+	 			<div class="float_blocks first"></div>
+	 		</div>
+	 		<div class="parent clearfix">
+	 			<div class="float_blocks">
+	 				<div class="clearfix">  <!-- Добавляем снова распорку родителю float элементов внутри, что б элементы всплыли и под ними был просто блочный элемент с классом third ниже.  -->
+	 					<div class="float_blocks">
+	 						<div class="clearfix">
+	 							<div class="float_blocks seventh"></div>
+	 							<div class="float_blocks seventh"></div>
+	 						</div>
+	 						<div class="sixth"></div>
+	 					</div>
+	 					<div class="float_blocks fourth"></div>
+	 				</div>
+	 				<div class="third"></div>
+	 			</div>
+	 			<div class="float_blocks first"></div>
+ 			</div>
+ 			<div class="parent clearfix">
+ 				<div class="float_blocks">
+ 					<div class="third"></div>
+ 					<div class="third"></div>
+ 				</div>
+ 				<div class="float_blocks">
+ 					<div class="clearfix">
+ 						<div class="float_blocks ninth"></div>
+ 						<div class="float_blocks">
+ 							<div class="clearfix">
+ 								<div class="float_blocks eleventh"></div>
+ 								<div class="float_blocks eleventh"></div>
+ 							</div>
+ 							<div class="tenth"></div>
+ 						</div>
+ 					</div>
+ 					<div class="eighth"></div>
+ 					<div class="eighth"></div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</body> 
+</html>

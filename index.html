@@ -1,0 +1,336 @@
+<!DOCTYPE html> <!-- Синтаксис документа соответвует HTML5 версии -->
+<html lang="en"> <!-- Обязательный атрибут lang для валидности -->
+	
+	<head> <!-- Служебная секция --> 
+		<meta charset="utf-8"> <!-- Обязательный атрибут charset. Кодировка, как браузеру читать текст -->
+ 		<title>Site for exaple</title> <!-- Обязательный атрибут title. Название сайта, отображаемое на вкладке вверху -->
+  		<link rel = "stylesheet" href="style/style.css"> <!-- Подключение таблицы внешних стилей свойств элементов из внешнего файла style.css.rel = "stylesheet" описание,что ссылка соответсвует стилям страницы stylesheet.  -->
+	 	<style> /*Глобальные стили: селекторы-перечисление свойств элемента*/
+	 			h1 {
+	 			color:grey;} /*Внешние и глобальные стили одинаковые по значимости(сработает тот,который отрендерится последним,будет ниже другого ).*/
+	 	</style>
+ 	</head>
+ 	
+ 	<body> <!-- Структура сайта и инфрмация --> 
+ 		<div class="wrapper" style="color:pink;"> <!-- Внутренние стили: свойства элемента прописываются при помощи атрибута тега style.Внутренние стили тегов значимее чем глобальные.-->
+ 			For me
+ 			
+ 		 	<div class="header">
+ 		 		<h1 class="soc"> <!-- Заглавие контента страницы, ее главная мысль -->
+ 		 	 		Training site 
+	 		 	 	<ul class="socmenu">
+						<li>
+							<a  href="#">
+								<img src="sprites/my_sprite/f.png" alt="F">
+							</a> <!-- Обязательно проставить # в ссылках , сделать пустые якори -->
+						</li>
+						<li>
+							<a  href="#">
+								<img src="sprites/my_sprite/t.png" alt="T">
+							</a>
+						</li>
+						<li>
+							<a  href="#">
+								<img src="sprites/my_sprite/y.png" alt="Y">
+							</a>
+						</li>
+						<li>
+							<a  href="#">
+								<img src="sprites/my_sprite/i.png" alt="I">
+							</a>
+						</li>
+					</ul>
+ 		 		</h1>
+ 			</div>
+ 			<ul id="begining" class="menu_navigation clearfix">
+					<li class="beh">
+						<a  href="#one">Поведение элементов</a> <!-- Обязательно проставить # в ссылках , сделать пустые якори -->
+					</li>
+					<li class="poz">
+						<a  href="#two">Позиционирование элементов</a>
+					</li>
+					<li class="prop">
+						<a  href="#three">Подсвойства background</a>
+					</li>
+					<li class="anim">
+						<a  href="#four">Анимация свойств элементов</a>
+					</li>
+				</ul>
+ 			<p id="#one">Поведение элементов</p>
+ 			<div class="menu items" style="height: 100px;"> <!-- Запомнить синтаксис class="класс1 класс2" !!!У одного элемента может быть несколько классов, но только один id. id значимее чем class.-->
+ 				<div>
+	 		 		<a href="html/inline_block.html"> inline-block </a>
+					<a href="html/table_cell.html"> table-cell </a>
+					<a href="html/float_block.html"> float </a>
+				</div>
+			</div>
+			<div class="sitebar"> 
+				<div class = "info_wrapper"> <!-- Обернула картинку в inline-block -->
+					<img src="grey_cat.jpg" alt="Котик серый и пушистый"><!-- Всегда растягивала у меня блок sitebar.Картинка имеет высоту 537px, а вылазили откуда-то 543,а если задавала font-size:0 родителю, то вообще 555px. Если тег img лежит внутри блочного элемента (в том числе элемента, ставшего блочным благодаря правилам display:block или float:left/right), то в большинстве популярных браузеров сразу под img появляется странный отступ в несколько пикселей. Картинки по умолчанию — строчные элементы и выравниваются по базовой линии текста, а базовая линия проходит несколько выше, чем нижний край блока — ведь еще резервируется место под «хвостики» букв. -->
+					<div class="info_line">
+						Красивый и пушистый котик
+					</div>
+				</div>
+				<div class="line_item" style="display:inline-block;"> <!-- Для расположения эл-тов в одну строку сделала из div строчный элемент inline-block. -->
+					<a href="#begining" > Перейти к меню </a> <!-- Создала якорную ссылку на определенный блок файла по id, расположенный на этой же странице. -->
+					<a href="#ending"> Перейти к футеру </a> 
+				</div>
+				<div class="soc_hov"><!--  Элемент absolute -->
+					<div class="hov_elem">
+						<div  class="in_abs">
+							Find me on social networks!
+						</div>
+						<ul class="socmenu">
+							<li class="f">
+								<a  href="#"></a> <!-- Обязательно проставить # в ссылках , сделать пустые якори -->
+							</li>
+							<li class="t">
+								<a  href="#"></a>
+							</li>
+							<li class="y">
+								<a  href="#"></a>
+							</li>
+							<li class="i">
+								<a  href="#"></a>
+							</li>
+						</ul>
+					</div> 
+				</div>
+			</div>
+			<p id="two">Позиционирование элементов</p>
+			<div class="parent">
+				<div class="table_elem">
+					<a href="html/total.html"> total+socmenu </a>
+				</div>
+				<div class="table_elem">
+					<a href="html/relative.html"> relative </a>
+				</div>
+				<div class="table_elem">
+					<a href="html/absolute.html"> absolute </a>
+				</div>
+			</div>
+			<p id="three">Подсвойства для свойства background</p>
+			<div class="my_list">	<!-- Добавила класс, для того что б выровнять элемент my_menu внутри блока my_list -->
+				<ul class="my_menu clearfix"> <!-- Маркированный список, в котором эл-ты выровняны при помощи float.clearfix после последнего эл-та  -->
+					<li> <!-- Элемент маркированного списка -->
+						<a href="html/repeat.html"> repeat</a> 
+						<ul class="repeat_bg">
+							<li>
+								<a href="html/repeat.html#first_repeat"> repeat</a> 
+							</li>
+							<li>
+								<a href="html/repeat.html#second_repeat"> repeat-x</a> 
+							</li>
+							<li>
+								<a href="html/repeat.html#third_repeat"> repeat-y</a> 
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="html/size.html"> size</a>
+						<ul class="size_bg">
+							<li>
+								<a href="html/size.html#first_size"> percent</a> 
+							</li>
+							<li>
+								<a href="html/size.html#second_size"> cover</a> 
+							</li>
+							<li>
+								<a href="html/size.html#third_size"> containe</a> 
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="html/position.html"> position</a>
+						<ul class="position_bg" id="list_bottom">
+							<li>
+								<a href="html/position.html#first_position"> percent</a> 
+							</li>
+							<li>
+								<a href="html/position.html#second_position"> to the side</a> 
+							</li>
+							<li>
+								<a href="html/position.html#third_position"> center</a> 
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>	
+			<p id="four">Анимация свойств элементов  и их преобразование</p>
+			<ul class="menu_animation">
+				<li class="transition_anim">
+					<a href="html/transition.html"> Transition (переход между состояниями эл-та) </a>
+					<ul>
+						<li>
+							<a href="html/transition.html#1">transition-property</a>
+						</li>
+						<li>
+							<a href="html/transition.html#2">transition-duration</a>
+						</li>
+						<li>
+							<a href="html/transition.html#3">transition-timing-function</a>
+						</li>
+						<li>
+							<a href="html/transition.html#4">transition-delay</a>
+						</li>
+					</ul>
+				</li>
+				<li class="transform_anim">
+					<a href="html/transform.html"> Transform (преобразование эл-та) </a>
+					<ul>
+						<li>
+							<a href="html/transform.html#1">transform-matrix</a>
+						</li>
+						<li>
+							<a href="html/transform.html#2">transform-rotate</a>
+						</li>
+						<li>
+							<a href="html/transform.html#3">transform-scale</a>
+						</li>
+						<li>
+							<a href="html/transform.html#4">transform-skew</a>
+						</li>
+						<li>
+							<a href="html/transform.html#5">transform-translate</a>
+						</li>
+					</ul>
+				</li>
+				<li class="volume_anim">
+					<a href="html/3d_img.html"> 3D images (perspective-глубина экрана) </a>
+					<ul>
+						<li>
+							<a href="html/3d_img.html#1">perspective</a>
+						</li>
+						<li>
+							<a href="html/3d_img.html#2">transform-origin</a>
+						</li>
+						<li>
+							<a href="html/3d_img.html#3">transform-origin-X</a>
+						</li>
+						<li>
+							<a href="html/3d_img.html#4">transform-origin-Y</a>
+						</li>
+						<li>
+							<a href="html/3d_img.html#5">transform-origin-Z</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="html/animation.html" class="anim_button">Свойство animation и правило @keyframes</a>
+			<p>Градиенты и рисунки при помощи CSS</p>
+			<ul class="menu_pic">
+				<li class="gradients">
+					<a href="html/gradients.html"> Градиенты </a>
+					<ul>
+						<li>
+							<a href="html/gradients.html#1">linear-gradient</a>
+						</li>
+						<li>
+							<a href="html/gradients.html#2">radial-gradient</a>
+						</li>
+						<li>
+							<a href="html/gradients.html#3">repeat-gradient</a>
+						</li>
+						<li>
+							<a href="html/gradients.html#4">gradient for border</a>
+						</li>
+						<li>
+							<a href="html/gradients.html#5">gradient for text</a>
+						</li>
+					</ul>
+				</li>
+				<li class="shadow_elem">
+					<a href="html/shadows_elem.html"> Тени </a>
+					<ul>
+						<li>
+							<a href="html/shadows_elem.html#6">Тень элемента</a>
+						</li>
+						<li>
+							<a href="html/shadows_elem.html#7">Тень текста</a>
+						</li>
+					</ul>
+				</li>
+				<li class="draw_elem">
+					<a href="html/draw_elem.html"> Рисунки на CSS </a>
+					<ul>
+						<li>
+							<a href="html/draw_elem.html#8">Простые рисунки</a>
+						</li>
+						<li>
+							<a href="html/draw_elem.html#9">Сложные рисунки</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<p>Тег form  и его внутреннние теги:</p>
+			<ul class="menu_form">
+				<li class="form_elem">
+					<a href="html/form_tegs.html"> тег textarea </a>
+				</li>
+				<li class="form_elem">
+					<a href="html/form_tegs.html"> тег select </a>
+				</li>
+				<li class="form_elem">
+					<a href="html/form_tegs.html"> тег input </a>
+						<ul>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип text </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип button </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип submit </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип reset </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип password </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип email </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип checkbox </a>
+							</li>
+							<li class="form_elem">
+								<a href="html/form_tegs.html"> тип radio </a>
+							</li>
+						</ul>
+				</li>
+				<li class="form_elem">
+					<a href="html/form_tegs.html"> тег button </a>
+				</li>
+				<li class="form_elem">
+					<a href="html/form_tegs.html"> тег label </a>
+				</li>
+			</ul>
+			<div style="font-size: 0;"> <!-- По умолчанию у р есть вертикальные отступы(и горизонтальные), чтобы их убрать задаем родителю нулевой размер шрифта. -->
+				<p class="footer"><!-- Блочный элемент для форматирования инфы. Может содержать в себе span, но не другие блочные элементы. -->
+ 		 			<span> 22.01.2020 </span>
+					<span> by Yana Makelska </span>
+				</p> 
+				
+ 		 	</div>
+ 		 	<div class="footer clearfix" id="ending"> <!-- У каждого элемента в пределах одной страницы(файла) id уникальный,не повторяется название у других эл-тов. -->
+ 		 		<span> 21.02.2020 </span>
+				<ul class="socmenu">
+					<li class="f">
+						<a  href="#"></a> <!-- Обязательно проставить # в ссылках , сделать пустые якори -->
+					</li>
+					<li class="t">
+						<a  href="#"></a>
+					</li>
+					<li class="y">
+						<a  href="#"></a>
+					</li>
+					<li class="i">
+						<a  href="#"></a>
+					</li>
+				</ul>
+ 		 	</div>
+ 		</div>
+ 	<script> </script> <!--БАГ хрома исправляю. что б не анимиривалось при запуске страницы все, а только когда нужно -->
+ 	</body>
+</html>

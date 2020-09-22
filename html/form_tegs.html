@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"> 
+	
+	<head> 
+		<meta charset="utf-8"> 
+ 		<title>Site for forms</title> 
+  		<link rel = "stylesheet" href="../style/styleForForms.css">
+ 	</head>
+ 	
+ 	<body> 
+		<form action="#handling_action">
+			<div class="textarea_container">
+				<textarea class="first_ta">Текст для редактирования.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quae recusandae, reiciendis necessitatibus nihil reprehenderit velit blanditiis. Laborum neque fugit architecto iste officia eaque, doloremque porro accusantium, rem consequatur maiores impedit nostrum aliquam adipisci eum quibusdam labore eligendi sapiente! Non ea vel excepturi, voluptatum sit dolore eligendi cumque facilis expedita!
+				</textarea>
+				<textarea class="second_ta">Текст для редактирования.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit perspiciatis cupiditate et dicta necessitatibus ullam obcaecati optio suscipit, voluptate beatae vero nihil, dolor corporis, quam voluptatem ad sit praesentium accusamus.
+				</textarea>
+				<!--  wrap="off нужен для отмены переноса слов на новые строки -->
+				<textarea class="third_ta" wrap="off">Текст для редактирования.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ut odio laudantium, aliquid libero autem similique voluptate tenetur consequuntur, amet reiciendis eveniet provident! Inventore id minima vitae vero voluptatem delectus.
+				</textarea>
+				<textarea class="fourth_ta">Текст для редактирования.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit voluptatibus eligendi, enim quod eum suscipit iste in. Illum repudiandae eaque deleniti, similique consequuntur nisi voluptas mollitia iure consectetur exercitationem temporibus possimus quis necessitatibus libero reprehenderit facilis error repellendus architecto unde!
+				</textarea> <!-- !!!!!НЕЛЬЗЯ текст переносить на новую строку, иначе образоваваются пробелы.
+				Пробел и перенос строки воспринимается как наличие значения у тега textarea , потому плейсхолдер и не выводиться. -->
+				<textarea placeholder="Write text" class="fifth_ta"></textarea><!-- !!!!НЕЛЬЗЯ переносить </textarea> на новую строку. образовываются пустые пробелы и placeholder не видна за ними -->
+			</div>
+			<div class="select_container">
+				<select multiple> <!-- Если у тега <select> добавлен атрибут multiple, то можно выделять более одного пункта через зажатие Ctrl+ЛКМ. -->
+					<option>A</option><!--  первый вариант выбран по умолч,тоесть он selected по умолч. -->
+					<option>B</option>
+					<option selected>C</option> <!-- добавила атрибут selected, чтоб был выбран этот вариант по умолч. -->
+				</select>
+			</div>
+			<div class="input_container">
+				<input value="Текст для редактирования">
+				<input placeholder="Введите текст" >  <!-- value="Текст для редактирования" не добавляю, так как будет введено это значение и placeholder не сработает-->	
+				<div class="cl_but">
+					<input type="button" value="Кнопка без события"> <!-- кнопка для отслеживания кликов -->
+					<input type="submit" value="Кнопка с событием отправки данных формы"><!-- нужна, что б вызвать событие в пределах формы -->
+					<input type="submit">
+				</div>
+				<input type="reset">
+				<input type="reset" value="Сброс данных">
+
+				<input type="email" required placeholder="Введите почту"> <!--атрибут required делает это поле обязательным для заполнения. 
+				Присутствует проверка на валидность-правильность заполнения поля -->
+				<input type="password" placeholder="Введите пароль" pattern="[A-Za-z]" title="Введите одну букву из [A-Za-z]"> 
+				<!-- можно в инспекторе кода открыть и поменять значение на text и увидеть, какой пароль был введен.
+				pattern="[A-Za-z]" разрешила ввод только одной латинской буквы в любом регистре
+				title="Введите одну букву из [A-Za-z]" подсказка при наведении  мыши высвечивается-->
+				<div>
+					<input type="number" step="2" size="2" name="num" min="0" max="10" value="2" title="Введите число от 0 до 10">
+					<input type="range" min="0" max="100" step="1" value="50">
+				</div>
+
+				<div class="together">
+					<label>
+						ФИО
+						<input placeholder="Введите данные"><!-- type="text" можно не писать, он по умолч. -->
+					</label>
+				</div>
+
+				<div class="separat">
+					<label for="inp_1"> Введите улицу </label>
+					<input value="Улица " id="inp_1">
+				</div>
+				<div class="separat">
+					<label for="inp_2"> Введите дом </label>
+					<input value="дом " id="inp_2">
+				</div>
+
+				<div class="clearfix"> <!-- родителю float элементA container делаем отмену обтекания -->
+					<div class="container">
+						<div class="separately clearfix"> <!-- родителю float элементов label делаем отмену обтекания -->
+							<label for="inp_4"> Введите улицу </label>
+							<input value="Улица " id="inp_4">
+						</div>
+						<div class="separately clearfix"> <!-- родителю float элементов label делаем отмену обтекания -->
+							<label for="inp_5"> Введите дом </label>
+							<input value="дом " id="inp_5">
+						</div>
+						<div class="separately clearfix"> <!-- родителю float элементов label делаем отмену обтекания -->
+							<label for="inp_3"> Введите квартиру </label>
+							<input value="квартира " id="inp_3">
+						</div>
+					</div>
+				</div>
+				<div class="choose_a_lot"> <!-- Множественный выбор при помощи поля checkbox -->
+					<label>Выберите подходящие варианты</label>
+					
+					<input type="checkbox" checked id="inp_6">  <!-- checked атрибут - состояние отмеченного checkbox -->
+					<label for="inp_6">A</label> <!-- сопутствующй текст к checkbox -->
+				<!-- 	<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+						<path d="M 10 10 L 90 90" style="stroke-dasharray: 113.137, 113.137; stroke-dashoffset: 0; transition: stroke-dashoffset 0.2s ease-in-out 0s;"></path>
+						<path d="M 90 10 L 10 90" style="stroke-dasharray: 113.137, 113.137; stroke-dashoffset: 0; transition: stroke-dashoffset 0.2s ease-in-out 0.2s;"></path>
+					</svg> -->
+			
+					<input type="checkbox" id="inp_7">
+					<label for="inp_7">B</label> <!-- сопутствующй текст к checkbox -->
+					
+					<input type="checkbox" id="inp_8">
+					<label for="inp_8">C</label> <!-- сопутствующй текст к checkbox -->
+				</div>
+
+				<div class="choose_one"> <!-- Взаимоисключающий выбор при помощи поля  radio и атрибута name="group_radio"  -->
+					<label>Выберите один подходящий вариант</label>
+					<!-- Группирую элементы radio при помощи атрибута name="group_radio -->
+					<input type="radio" name="group_radio" checked id="inp_9">  <!--checked атрибут-состояние отмеченного radio -->
+					<label for="inp_9">A</label> <!-- сопутствующй текст к radio" -->
+						
+					<input type="radio" name="group_radio" id="inp_10"> 
+					<label for="inp_10">B</label> <!-- сопутствующй текст к radio -->
+					
+					<input type="radio" name="group_radio" id="inp_11">
+					<label for="inp_11">C</label> <!-- сопутствующй текст к radio -->
+				
+					<input type="radio" id="inp_12"> 
+					<!-- !!!!!!!Если не добавлять атрибут name="group_radio" то при нажатии элемент будет выбран и снять выбор уже 	нельзя, пока его не заменит другой элемент из группы -->
+					<label for="inp_12">Подходит больше одного варианта!</label> <!-- сопутствующй текст к radio -->
+				</div>
+				<div class="light_radio">
+					<input type="radio" id="inp_13" name="light">
+					<label for="inp_13" title="Нажми на меня">Включить свет</label>
+					<input type="radio" id="inp_14" name="light">
+					<label for="inp_14">Выключить свет</label>
+				</div>
+				<button>Кнопка с событием отправки данных/результатов </button> <!-- нужна, что б вызвать событие в пределах сайта --> <!-- Не input, стилизована по другому -->
+			</div>
+		</form>
+		<form>
+			<div id="num_none">
+				<button id="minus"></button>
+				<input type="number" step="2" name="num" min="0" max="10" value="2" title="Введите число от 0 до 10">
+				<button id="plus"></button>
+			</div>
+			<div id="num_style">
+				<input type="number" step="2" name="num" min="0" max="10" value="2" title="Введите число от 0 до 10">
+				<figure></figure>
+			</div>
+			</form>
+		<script> </script> <!-- что б не анимиривалось при запуске страницы все, а только когда нужно -->
+ 	</body>
+ </html>

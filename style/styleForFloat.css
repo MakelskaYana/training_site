@@ -1,0 +1,76 @@
+@import "styleMeyerReset.css";/*Подключение набора селекторов, который убирает все стили элементов,заданные по умолчанию*/
+/*Обращения к глобальным элементам  классам*/
+.wrapper{
+
+}
+	.wrapper{
+		width:1200px;
+		margin:0 auto;
+		
+	}
+	.float_blocks{
+		outline: solid 1px black;
+		float: left;
+	}
+	.first{
+		width: 400px;
+		min-height: 300px;
+		background: grey;
+	}
+
+	.second{
+		width: 800px;
+		min-height: 300px;
+		background: pink;
+	}
+	.third{
+		width: 800px;
+		min-height: 150px;
+		background: #eced6b;
+	}
+	.fourth{
+		width: 400px;
+		min-height: 150px;
+		background: #4dbc4d;
+	}
+	.fifth{
+		width: 200px;
+		min-height: 150px;
+		background:#4bdbd4;
+	}
+	.sixth{
+		width: 400px;
+		min-height: 75px;
+		background:#9658db;
+	}
+	.seventh{
+		width: 200px;
+		min-height: 75px;
+		background:#6b98db;
+	}
+	.eighth{
+		width: 400px;
+		min-height: 100px;
+		background:#742e72;
+	}
+	.ninth{
+		width: 200px;
+		min-height: 100px;
+		background:#dd3e96;
+	}
+	.tenth{
+		width: 200px;
+		min-height: 50px;
+		background:#b2ba39;
+	}
+	.eleventh{
+		width: 100px;
+		min-height: 50px;
+		background:#f2973b;
+	}
+	.clearfix::after{ /*Обращение к элементу , которому присвоен служебный класс clearfix, что б после последнего элемента  float в этом классе была создана распорка для отмены обтекания.*/
+	clear:both;/* Отменяет обтекания и с правой, и с левой стороны. Растягивает родительский блок по высоте*/
+	content:"";/* Позволяет добавить контент как для тега. Будет виден на странице пользователю, но не доступен для прочтения браузеру.*/
+	display: block; /*Распорка обязательно должна быть блочной,на всю высоту элемента и ширину родителя.*/
+
+}

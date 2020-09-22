@@ -1,0 +1,99 @@
+@import "styleMeyerReset.css";/*Подключение набора селекторов, который убирает все стили элементов,заданные по умолчанию*/
+/*Обращения к глобальным элементам  классам*/
+	a {
+			color:white;
+			font-size: 20px;
+			text-decoration: none; /*Отменяет подчеркивание ссылки*/
+		}
+
+	div{
+		font-size: 0;/*Применяю к блоку родителю, внутри которого будут вложенные inline-block элементы, чтобы между ними не было отступов, как пробелов между словами.*/
+	}
+
+	.wrapper {
+		width: 1200px;
+		margin: 0 auto;
+		background: grey;
+		text-align: center;/* Выравнивание элементов по центру внутри этого блока*/
+
+	}
+	.container div {
+		outline:1px solid white;
+		box-sizing: border-box; /*В размер элемента входит значение границ border и padding*/
+	}
+	.inline_block_elem {
+		display: inline-block; /*Делаю элемент строчно-блочным, что бы поставить несколько таких элементов в одну строку.*/
+		color:white;
+		font-size: 20px; /*Обязательно возвращаю значение шрифта внутреннему элементу, родителю которого я обнулила шрифт. По умолчанию дочерний унаследует значение 0.*/
+		vertical-align: top;
+	}
+	.first {
+		width: 400px;
+		background: DimGrey;
+		padding: 150px 0px; /*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.second {
+		width: 800px;
+		background: SlateGrey;
+	}
+	.third{
+		background: SlateGrey;
+		padding: 75px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.fourth{
+		width: 400px;
+		background: SlateGrey;
+		padding: 75px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.fifth{
+		width: 200px;
+		background: DarkSlateGrey;
+		padding: 75px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.sixth{
+		width: 400px;
+		background: MediumAquamarine;
+		padding: 37.5px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.seventh{
+		width: 200px;
+		background: YellowGreen;
+		padding: 37.5px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.eighth{
+		width: 400px;
+		background: RoyalBlue;
+		padding: 50px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.ninth{
+		width: 200px;
+		background: DeepSkyBlue;
+		padding: 50px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.tenth{
+		width: 200px;
+		background: SkyBlue;
+		padding: 25px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+	.eleventh{
+		width: 100px;
+		background: Turquoise;
+		padding: 25px 0px;/*Для того, чтобы задать высоту, не прописывая контент.*/
+	}
+/*Обращения к отдельным элементам*/
+	.first+.first {
+		background: DarkGrey;
+	}
+	.first:last-child { /*Псевдокласс :last-child задает стилевое оформление последнего элемента своего родителя.*/
+		background: LightGrey;
+	}
+	.fourth:last-child { /*Псевдокласс :last-child задает стилевое оформление последнего элемента своего родителя.*/
+		background: Teal;
+	}
+	.fifth:last-child { /*Псевдокласс :last-child задает стилевое оформление последнего элемента своего родителя.*/
+		background: LightSeaGreen;
+	}
+	.first:last-of-type { /*Псевдокласс :last-of-type задает правила стилей для последнего элемента в списке дочерних элементов своего родителя.*/
+		background: PaleTurquoise;
+	}
+	

@@ -1,0 +1,104 @@
+@import "styleMeyerReset.css";/*Подключение набора селекторов, который убирает все стили элементов,заданные по умолчанию*/
+/*	*{
+		vertical-align: top; Можно задать стиль абсолютно для всех элементов веб-страницы, можно воспользоваться универсальным селектором CSS, для обозначения которого используется символ звездочки *
+	}*/
+	a {
+		color:white;
+		font-size: 20px;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+	}
+	.wrapper {
+		width: 1200px;
+		margin: 0 auto;
+		background: pink;
+		text-align: center;/* Выравнивание элементов по центру внутри этого блока*/
+		/*font-size: 0; Не задаем родителю 0 шрифт, потому что ячейки в таблице выстраиваются без пробелов.*/
+	}
+	.container {
+		min-height: 300px;
+	}
+	.table_cell_elem{
+		display: table-cell;
+		
+	}
+	.first{
+		width:400px;
+		padding: 150px 0;
+		/*box-sizing: border-box;*/ /*Свойство работает только для блочных элементов.*/
+	}
+	.second{
+		width:800px;
+		background: MediumPurple;
+
+	}
+	.third{
+		width:800px;
+		padding: 75px 0;
+		background: MediumOrchid;
+
+	}
+	.fourth{
+		width:400px;
+		padding: 75px 0;
+	}
+	.fifth{
+		width:200px;
+		padding: 75px 0;
+		background: BlueViolet;
+	}
+	.sixth{
+		width:400px;
+		padding: 37.5px 0; /*На деле выходит высота блока на 1px меньше, не получилось задать правильно.*/
+		background: PaleVioletRed;
+	}
+	.seventh{
+		width:200px;
+		padding: 37.5px 0; /*На деле выходит высота блока на 1px меньше, не получилось задать правильно.*/
+		background: HotPink;
+	}
+	.eighth{
+		width:400px;
+		padding: 50px 0;
+		background: Orchid;
+	}
+	.ninth{
+		width:200px;
+		padding: 50px 0;
+		background: Plum;
+	}
+	.tenth{
+		width:200px;
+		padding: 25px 0;
+		background: Fuchsia;
+	}
+	.eleventh{
+		width:100px;
+		padding: 25px 0;
+		background: Lavender;
+	}
+
+	.first+.first {
+		background: Plum;
+	}
+	.first:last-child{
+		background: Violet;
+	}
+	.fourth:last-child{
+		background: Indigo;
+	}
+	.fifth:first-child{
+		background: Fuchsia;
+	}
+	.seventh:first-child{
+		background: MediumVioletRed;
+	}
+	.eight:last-child{
+		background: DarkOrchid;
+	}
+	.eleventh:first-child{
+		background: RosyBrown;
+	}
+	.container div
+	{
+		vertical-align: top; /*Задаю выравнивание строчных блоков относительно друг друга не по базовой линии(по умолч), а по верхней.*/
+	}

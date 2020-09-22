@@ -1,0 +1,123 @@
+<!DOCTYPE html> <!-- Синтаксис документа соответвует HTML5 версии -->
+<html lang="en"> <!-- Обязательный атрибут lang для валидности -->
+	
+	<head> <!-- Служебная секция --> 
+		<meta charset="utf-8"> <!-- Обязательный атрибут charset. Кодировка, как браузеру читать текст -->
+ 		<title>Site for drawing</title> <!-- Обязательный атрибут title. Название сайта, отображаемое на вкладке вверху -->
+  		<link rel = "stylesheet" href="../style/styleForDraw.css"> <!-- Подключение таблицы внешних стилей свойств элементов из внешнего файла style.css.rel = "stylesheet" описание,что ссылка соответсвует стилям страницы stylesheet.  -->
+	 </head>
+ 	
+ 	<body>
+	 	<div class="wrapper">
+	 		<div class="easy_elem" id="8">
+	 			<div class="parus_1">
+	 			</div>
+	 			<div class="parus_2">
+	 			</div>
+				<div>
+					<div class="out">
+						<div class="inn"></div>
+					</div>
+		 			<div class="triangle tr_1">
+		 			</div>
+		 			<div class="triangle tr_2">
+		 			</div>
+		 			<div class="triangle tr_3">
+		 			</div>
+		 			<div class="triangle tr_4">
+		 			</div>
+				</div>
+	 			<div class="pizza_1">
+	 			</div>
+	 			<div class="pizza_2">
+	 			</div>
+
+	 			<div class="concave">
+	 			</div>
+<!-- Использование SVG графики. Прописывается как теги в html документе -->
+	 			<svg width="300" height="200" viewBox="0 0 300 200">
+				  <defs>
+				    <linearGradient id="grad">
+				      <stop offset="0" stop-color="#ddd" />
+				      <stop offset=".5" stop-color="#fff" />
+				      <stop offset="1" stop-color="#ddd" />
+				    </linearGradient>
+				  </defs>
+				  <g stroke-width="1" stroke="#000" fill="url(#grad)">
+				    <path d="M30,25 L80,25 Q50,100 80,175 L30,175 Q60,100 30,25" />
+				    <path d="M150,25 Q115,100 150,175 Q185,100 150,25" />
+				  </g>
+				</svg>
+
+				<div class="arrows">
+		 			<a class="arrow_down" href="#2">
+		 			</a>
+		 			<a class="arrow_right" href="#1">
+		 			</a>
+				</div>
+				<div>
+					<div class="info_block_1">Текст</div>
+					<div class="info_block_2">Текст</div>
+				</div>
+				<div class="border_rainbow">
+	 			</div>
+				<div class="elem_fig">
+					<div class="round_arrow">
+		 			</div>
+		 			<div class="star_elem">
+		 			</div>
+		 			<div class="infinity">
+		 			</div>
+		 			<div class="heart">
+		 			</div>
+		 			<div class="octagon">
+		 			</div>
+		 			<div class="yin_yang">
+		 			</div>
+		 			<div class="little_square">
+		 			</div>
+				</div>
+				<div class="button_elem"> Кнопка
+				</div>
+				<div class="ribbons">
+					<div class="ribon_elem_1">
+		 			</div>
+		 			<div class="ribon_elem_2">
+		 			</div>
+			 		<figure>
+			 			<div class="ribon_elem_3"></div>
+						<span class="ribon_3_st"></span>
+					</figure>
+		 		</div>
+	 		</div>
+
+	 		<div class="difficult_elem" id="9">
+	 			<div class="indicator_percent_total">
+					<div class="indicator_percent_1">
+					</div>
+					<div class="indicator_percent_2">
+					</div>
+					<div class="indicator_percent_3">
+					</div>
+					<div class="indicator_percent_4">
+					</div>
+					<div class="indicator_percent_5">
+					</div>
+				</div>
+	 			<div class="screw_helix">
+	 			</div>
+	 			
+	 			<div class="screw_nut">
+	 			</div>
+	 			
+	 			<div class="wrench">
+	 			</div>
+	 			
+	 			<div class="vessel">
+	 				<div class="sail"></div>
+	 				<div class="boat"></div>
+	 			</div>
+	 		</div>
+	 	</div>
+ 	</body>
+ </html>

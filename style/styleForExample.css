@@ -1,0 +1,798 @@
+@font-face { 
+    font-family: "merriweatherregular"; /*загрузила файл с google.fonts в fontsquirell и сгенерировала другие типы файлов*/
+    src: url("../fonts/merriweather/merriweather-regular-webfont.eot");
+    src: url('../fonts/merriweather/merriweather-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/merriweather/merriweather-regular-webfont.woff2') format('woff2'),
+         url('../fonts/merriweather/merriweather-regular-webfont.woff') format('woff'),
+         url("../fonts/merriweather/merriweather-regular-webfont.ttf") format('truetype'),
+         url('../fonts/merriweather/merriweather-regular-webfont.svg#merriweatherregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'Puppy Bold';/* скачала с торрент файл format otf,загрузила в font2web и сгенерировала другие типы файлов */
+	src: url('../fonts/puppy/OT Puppy Bold.eot');
+	src: /*url(../fonts/puppy/OT Puppy Bold.otf) format('otf'), не нужно его дописывать и файл тоже не нужен.
+	Хоть и из него генерировала остальные. 	Есть ttf его достаточно*/
+		url('../fonts/puppy/OT Puppy Bold.eot?#iefix') format('embedded-opentype'), /*дописала сама*/
+		url('../fonts/puppy/OT Puppy Bold.woff') format('woff'),
+	  	url('../fonts/puppy/OT Puppy Bold.ttf') format('truetype'), 
+	  	url('../fonts/puppy/OT Puppy Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/*Подключение шрифта с файликов в моем проекте*/
+/*@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap'); Для подключения шрифта через google.fonts*/
+/*Основные свойства элементов*.Комментарий для разбиения документа на логические блоки*/
+	div  {
+	/*	width:1200px; div занимает по ширине все доступное место в пределах экрана, нужно ограничивать*/
+	/*	height:300px; div занимает высоту по содержанию, поэтому когда контент(динамический) изменяемый, высоту не ограничиваем*/
+	/*	overflow:visible;(по умолч.видимый) Описывает, как будет выглядеть контент, выходящий за пределы блока (по умолч. у body значение auto-скроллинг только тогда, когда он нужен)*/
+	/*	background-color:purple; Цвет фона всего элемента*/
+	/*	background:white 0 0 no-repeat; Универсальное свойство, состоящее из подсвойств. Упрощение для оптимизации.*/
+	/*	text-align:center; Выравнивание контента(текста) по центру блока, а также выравнивание элементов span по центру блока*/ 
+	/*	margin:0 auto; Внешние отступы и способ выравнивания элемента div по центру родителя путем уравнения отступов справа и слева*/
+	/*	box-sizing:content-box;(по умолч.по содержимому) Алгоритм расчета ширины и высоты элемента((включая padding, border, НО НЕ margin-это border-box) или (нет content-box))*/
+	/*	color: red; Цвет текста внутри блока*/
+	/*	font-size: 35px; Размер шрифта*/
+	/*	line-height: 35px; Межстрочный интервал. Необходимо задавать самому всегда и в px. */
+
+
+
+	}
+
+	span {
+	/*	width:50px; span по ширине растягивается по контенту. Какую ширину не задать,все зависит от длинны слова внутри элемента*/
+	/*	height:100px; span по высоте растягивается по контенту. Высота и ширина элементу span не задается*/
+	/*	text-align:center; Текст внутри элемента span и так будет по центру, потому что у него высота и ширина зависит от контента. */
+	/*	Что б выровнять сам span по центру родителя, нужно родителю прописать text-align:center;*/
+	/*	margin:10px 5px; Внешний отступ элемента(поля). Универсальное свойство, объединяющее mergin-top,margin-bottom,т.д*/
+	/*	padding:5px; Внутренний отступ элемента.*/
+	/*	border: 1px solid; Граница(забор) вокруг элемента. Универсальное свойство:толщина и тип начертания;*/
+
+
+	}
+
+	p {
+	/*	margin:0 auto; Внешние отступы и способ выравнивания элемента p по центру родителя путем уравнения отступов справа и слева*/
+	/*	text-align:center; Выравнивание контента(текста) по центру блока, а также выравнивание элементов span по центру блока*/ 
+		color: #bbefd5;
+		font-size: 40px;
+		line-height: 50px;
+		background: #1c3a35;
+		font-family: "merriweatherregular", serif; /*установила себе этот шрифт на комп, и у меня от отобразился на сайте.
+		 Это не стандартный безопасный шрифт.Что б он работал у клиентов,его нужно подключить к моейму файлу css */
+	}
+
+	h1 {
+	/*	text-align:center; Выравнивание контента(текста) по центру блока*/
+
+	}
+	a{
+		text-decoration: none;
+	}
+
+/* * {margin: 0; padding: 0;}Универсальный селектор распространяется на все элементы страницы (теги), но имеет нулевой приоритет*/ 
+/*Свойства элементов для стилизации страницы*/
+	.wrapper{
+		width:1200px; /*div занимает по ширине все доступное место в пределах экрана, нужно ограничивать*/
+		margin:0 auto; /*Выравнивание элемента по центру экрана*/
+		background-color:yellow; /*Цвет фона всего элемента*/
+		text-align:center; /*Выравнивание контента(текста) по центру блока, а также выравнивание элементов span по центру блока*/
+	    color: green; /*Цвет текста внутри блока*/
+		font-size: 35px; /*Размер шрифта*/
+		line-height: 35px; /*Межстрочный интервал. Необходимо задавать самому всегда и в px. */
+		border: 1px solid red;
+		box-sizing:content-box;/*content-box задала, что б width эл-та=border+заданная width+padding, и не делал ширину дочерних элементов меньше на 2px(2 линии границ по 1px) */
+
+	}
+/*Верхнее меню сайта */
+	.header{
+		height:102px; /*Задала 90 высота блока внутри + еще при повороте высота li увеличилась+12*/
+		color: inherit; /*Цвет текста внутри блока.Свойство будет наследоваться от родителя,если его не изменить.inherit - принудительно назначить наследование от родителя*/
+		font-size: 30px; /*Размер шрифта. Свойство будет наследоваться от родителя,если его не изменить.*/
+		line-height: 30px; /*Межстрочный интервал. Необходимо задавать самому всегда и в px.Свойство будет наследоваться от родителя,если его не изменить. */
+		border: 1px solid green;
+		box-sizing:border-box;/*Алгоритм расчета ширины и высоты элемента(включая padding, border, НО НЕ margin)*/
+		line-height: 102px;/* Для выравнивания одной строки текста,который будет в дочернем блоке h1 задаю одинаковые значения высоты и межстрочного интервала
+		для блока-родителя,а именно для header.Минусы:Подходит только для однострочных элементов;Позволяет выравнивать только по центру.*/
+	}
+	.soc{
+		position: relative;
+	}
+	.soc ul{
+		width: 450px; /* поменяла тут*/
+		height: 90px;
+		bottom:0;
+		right:0;
+		margin:0 0 0 auto; /*Выравниваю ul справой стороны родителя, он имеет блочное поведение*/
+		position: absolute;
+		text-align: right;
+		}
+	.soc .socmenu li{
+		width: 90px;
+		height: 90px;
+		opacity: 0.75;
+		margin-bottom: 0;
+	}
+	.soc .socmenu li a{
+	
+		transform: rotate(45deg);
+		background: #587dc5;
+		overflow: hidden;
+		width: 75px;
+		height: 75px;
+
+	}
+	.soc .socmenu li:nth-child(2) a{
+		background: #5eabde;
+	}
+	.soc .socmenu li:nth-child(3) a{
+		background: #fff;
+	}
+	.soc .socmenu li:nth-child(4) a img{
+		background: #fff;
+		transform:scale(1.5) rotate(-45deg);
+	}
+
+	.soc .socmenu li img{
+		transform: rotate(-45deg) translate(0,-3px);
+		width: 80px;
+		height: 80px;
+
+	}
+	.soc ul li:hover{
+		opacity: 1;
+		transform: all 1s linear;
+	}
+/*Меню навигации по странице*/
+	.menu_navigation{
+		width: 1000px;
+		display: inline-block; /*Что б выровнять по центру родителя*/
+		vertical-align: top; /*Убираю отступ под элементом*/
+		text-align: left;
+	}
+	.menu_navigation li{
+		float: left; /*Выравниваем  при помощи float, что б сохранить display:list-item;*/
+		width: 500px;
+		padding-top: 4px;
+		box-sizing: border-box;
+		list-style-position: inside;/*Веб-браузеры обычно отображают маркеры списка слева от элементов списка.
+		 С помощью свойства list-style-position мы можем настроить их позиционирование.
+		 Это свойство принимает два значения: outside (по умолчанию) и inside (обеспечивает равномерное распределение по ширине)*/
+
+		list-style-image: url('../sprites/my_sprite/menu_nav.png'); /*Маркеры, заданные картинкой*/
+
+	}
+	.menu_navigation li>a{
+		text-decoration: none;
+		color:#aaa;
+		/*font-family-это свойство для подключения файлов шрифтов( семейства шрифтов и типа шрифта)*/
+		/*font-family:"Times New Roman",Times,serif; "Times New Roman" сразу установлен у меня в браузере по умолчанию, поэтому шрифт не поменялся*/
+		font-family:"Lusida Console",Monaco,monospace;/*Шрифт из безопасных шрифтов и не требует скачивания дополнительного.Есть во всех ОС, как базовый.
+		Шрифт с названием из двух слов нужно в "" заключать!!!!*/
+		font-size: 30px;
+		vertical-align: top;
+	}
+/*Разделы сайта */
+	.menu {
+		height:200px!important; /*Свойство игнорирования значимости.Если у элемента div появится другой класс прописанный ниже этого селектора 
+		с параметром height,или свойство будет прописано во внутреннем стиле, то он все равно будет менее значимый.*/
+		color: blue; /*Цвет текста внутри блока.Свойство будет наследоваться от родителя,если его не изменить.inherit - принудительно назначить наследование от родителя*/
+		font-size: 35px; /*Размер шрифта. Свойство будет наследоваться от родителя,если его не изменить.*/
+		line-height: 40px; 
+		border: 1px solid white;
+		box-sizing:border-box;/*Алгоритм расчета ширины и высоты элемента(включая padding, border, НО НЕ margin)*/
+	}
+
+	.items { /*Элемент div приймет параметры этого класса, потому что он в селекторе прописан ниже.*/
+		height:300px;
+		/*Добавить комментарий размером в одну строку можно при помощи //, но виден в инспекторе кода с пометкой восклицательный знак в треугольнике!И W3Validator ругается.*/
+		color: white;
+		background-color:teal;
+		border: 1px solid black;
+	}
+
+	.menu a{
+		display: inline-block;
+		padding-left: 40px;
+		position: relative;
+	}
+	.menu a:before{
+		display: block;
+		content: "";
+		width: 34px;
+		height: 34px;
+		position: absolute;
+		top:0;
+		left:0px;
+		background: url('../sprites/my_sprite/cube_rube.png') #fff;
+		border-radius: 22px;
+		background-position: 0 0;
+	}
+
+/*Внутреннее наполнение сайта*/
+	.sitebar{
+		background-color:grey;
+		color:white;
+		text-align: left;/*Выравнивание текста слева внутри элемента */
+		text-align-last: justify; /*Выравнивание последнего элемента с классом line_item в блоке по правой стороне родителя.*/
+		/*line-height:0;Еще один вариант убрать отступ после картинки, задала блоку-контейнеру в котором картинка*/
+		position: relative;
+	}
+
+	.info_wrapper{
+		display:inline-block; /*Помещаю картинку в inline-block, что б этот блок растянулся по высоте и ширине по содержимому(картинке)*/
+		position: relative;/* Задаю родителю absolute элемента позиционирование relative*/
+	}
+
+	.info_line{
+		position: absolute; /*Задаю элементу позиционирование absolute, что б он выстроился относительно родителя.*/
+		display: none; /*Изначально элемент не отображается на экране*/
+	}
+
+	.sitebar img { /*Решение проблемы отступа после картинки, нужно прописать для img или display:block или vertical-align:top/middle/bottom.*/ 
+		vertical-align: top;
+	}
+
+	.info_wrapper:hover .info_line { /*Изменения внутри, при наведении на элемент картинка*/
+		display: block; /*При наведении элемент выводится на экран, делаем его видимым*/
+		width: 450px;
+		left:50%;/* Выравниваем надпись по центру блока картинки*/
+		margin-left:-225px; /* Выравниваем надпись по центру блока(картинки)*/
+		background: rgb(0,0,0,0.5); 	
+		top:60%; /* Выравниваем надпись по вертикали внутри блока(картинки)*/
+	}
+
+	.line_item{
+		width: 300px;
+		margin: 0px auto 0px auto;/*Выравнивание элемента по правой стороне родителя. Сейчас не срабатывает*/
+	}
+	.line_item a{
+		/*font-family:"Puppy Bold",sans-sefif;*/
+		font:35px/50px "Puppy Bold" ;/* сведенное свойство font-size/line height font-family начертание толщина;*/
+	}
+
+	/*Элемент зафиксированный , hover, sprites. Соц меню выскакивающее*/
+/*	.soc_hov{  Это fixed, но он относительно body, поэтому лохо располагается на экране
+		position: fixed;
+		right: 0;
+		top:0;
+		overflow: hidden;  Что б hov_elem у которого margin-right:-600px не раздвигал боди и не появлялся скролл
+
+	}*/
+	.soc_hov{
+		position: absolute;
+		right: 0;
+		top:200px;
+		overflow: hidden;  /*Что б hov_elem у которого margin-right:-600px не раздвигал боди и не появлялся скролл*/
+
+	}
+	.hov_elem{
+		position: relative; 
+		padding-left: 100px;
+		height: 160px;
+		width: 350px;	/* margin  для li 10px справа(30) +ширина всех а 4*60=240(+повернули , они увеличились)*/
+		/*margin-right:-350px; Вылазит сначала весь блок, а потом прячется если transition	прописана в .hov_elem*/
+		left:350px; /*Спозиционировала относительно родителя, из за него вылазит кусочек в 100рх, а при hover уже весь блок!*/
+		font-size: 0;
+		transition: all 1s linear;
+		
+	}
+	.hov_elem:before{
+		display:block;
+		position: absolute;
+		left: 0;
+		top:100%;
+		width: 160px;
+		height: 100px;
+		line-height: 100px; /*выравняла текст однострочный по центру этого блока*/
+		background: red;
+		color:white;
+		font-size: 30px;
+		transform: rotate(-90deg);
+		transform-origin: left top 0; /*Что б элемент повернулся вокруг своей левой верхней части, точки, а не вокруг своего центра как обычно*/
+		content: "Point on me!";
+	}
+	.hov_elem:hover{ /*НУЖНО сделать так, что б в обратную сторону тоже анимировалось!*/
+		left: 0; /*Вернула позицию относительно левой стороны родителя, что б весь блок было видно!*/
+		/*margin-right: 0;*/
+		/*transition: all 1s linear;*/
+	}
+	/*.hov_elem:not(:hover){ Работает так же если б записала transition в начальное состояние hov_elem, но и после ховера тоже плавно убирается,не резко
+		margin-right:-600px;
+		transition: all 1s linear;
+	}*/
+
+	.in_abs{
+		line-height: 80px;
+		color:lime;
+		font-size: 30px;
+	}
+	/*Класс для socmenu  есть ниже, поэтому меняю только фон*/
+		.hov_elem ul li>a{ /*Нужно было обратиться с большим весом, что б переплюнуть обращение ниже в footer  к классу socmenu*/
+			background: url('../sprites/socmenu/sprite_bl_n.png') 0 0;
+			transform: rotate(45deg);
+			 
+		}
+		.hov_elem ul .f:hover a{
+			background: url('../sprites/socmenu/sprite_bl_n.png') 60px 0;
+		}
+
+		.hov_elem ul li{ /*Для того что б разграничить теперь повернутые а(которые по ширине и высоте стали 80*80), нужно добавить для li отступы*/
+			margin:10px 20px 10px 10px;
+		}
+		.hov_elem ul li:last-child{ /*Для того что б разграничить теперь повернутые а, нужно добавить для li отступы*/
+			margin-right: 10px;
+		}
+
+
+/*Меню для видов позиционирования  */
+	.parent{
+		text-align: center;
+		background:#b9ced1;
+	}
+	.table_elem {
+		display:table-cell;
+		min-width: 400px;
+	}
+
+/*Список для подсвойств background*/
+	.my_list{/* Класс для выравнивания списка по центру*/
+		text-align: center;
+		background: #52a79e;
+	}
+	.my_menu { /*Стилизация списка*/
+		display: inline-block; /*Задала что  выровнять эти элементы по центру класса my_list*/
+		background: #488d83;
+		vertical-align: top; /*Что б не было пустого пространства в конце списка(скачут элементы)*/
+		z-index: 4; /*Для того, что б находился выше, когда выпадает список еще из него, что б подсписок перекрыл элементы ниже
+		 и не прятался под меню для анимации(z-index: 3). z-index работает для элементов на одном уровне вложенности. поэтому обращаемся к родителю li  и подсписков ul*/
+		position: relative; /*Для того, что б работал  z-index*/
+	}
+	.my_menu a{
+		display: block; /*Для того, что б задать padding для ссылки, нужно сделать ее блочной*/
+		font-size: 40px;
+		line-height: 50px;
+		padding: 20px; /*Добавляю, что б разделить надписи немного нежку собой и что б вся область вокруг надписи была ссылкой!*/
+		color: #c8dfdf;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+
+	}
+
+	.clearfix::after{ /*Распорка для блоков float , элементов списка*/
+		clear: both;
+		display: block;
+		content: "";
+	}
+
+	.my_menu>li{
+		float: left; /*Выравниваю элементы при помощи float*/
+		text-align: center;
+		width: 180px;
+		border: 3px solid #a6c0e1;
+		margin: 0 30px; /*Разделяю между собой , делаю как кнопки*/	
+
+	}
+	.my_menu ul>li{
+		border: 3px solid #a6c0e1;
+		border-top: none;
+		background: #488d83;
+	}
+	.my_menu ul li:first-child { /*Псевдокласс :first-child применяет стилевое оформление к элементу,
+	который является первым дочерним элементом у  своего родителя.  К первому элементу li, который дочерний у классов .repeat_bg,.size_bg */
+		border-top: 3px dashed #a6c0e1;
+	}
+	.my_menu .position_bg li:first-child { /*Псевдокласс :first-child применяет стилевое оформление к элементу,
+	который является первым дочерним элементом у  своего родителя.  К первому элементу li, который дочерний у классов .repeat_bg,.size_bg */
+		border-top: 3px solid #a6c0e1;
+	}
+	.my_menu .position_bg li:last-child { /*Псевдокласс :first-child применяет стилевое оформление к элементу,
+	который является последним дочерним элементом у  своего родителя.  К последнему элементу li, который дочерний у классов .position_bg */
+		border-bottom: 3px dashed #a6c0e1;
+	}
+	.my_menu>li{
+		position: relative;
+	}
+	.my_menu ul{
+		position: absolute;
+		padding-top:20px;
+		/*top:100%; Перекрывает почему-то все обращения ниже, даже если у них больший вес. все равно позиционируются под родителем */
+	}
+	.repeat_bg{ /*Класс для первого подсписка ul*/
+		/*left: -3px; Потому что у элемента li есть свой border 3px , который не входит в размер самого .my_menu li*/
+		width: 180px;
+	}
+
+	.my_menu li>ul{
+		display: none;
+	}
+	.my_menu li:hover >ul{
+		display: block; /*При наведении появляется на экране, а до этого был скрыт*/
+	}
+	.size_bg {/*Класс для второго подсписка ul*/
+		width: 206px;
+		box-sizing: border-box;
+		left: 50%;
+		margin-left: -103px;
+	}	
+	.my_menu li>.position_bg {/*Класс для третьего подсписка ul*/
+		width: 300px;
+	/*	bottom:-3px !important; Не срабатывал important, обратилась через id*/
+		left: 100%;
+	}
+	#list_bottom{/* Для стилизации этого элемента*/
+		bottom:-3px;
+		padding-left:40px; 
+	}
+/*Меню для анимации и позиционирования*/
+	.menu_animation{
+		background: #52a79e;
+		font-size: 0; /*Забыла дописать изначально(ошибка), и были пробелы между словами, поэтому 3 эл-та с шириной 400px не влазили в блок с шириной 1200 px*/
+		z-index: 3; /*Что б элементы которые ниже этого блока не перекрывали подсписок +*/
+		position:relative;
+	}
+	.menu_animation li{
+		display: inline-block;
+		vertical-align: top; /*Что б не было отступа внизу после этих элементов строчных!*/
+		background: #7c9e9a;
+		margin-right:10px;
+		position: relative;
+	}
+	.menu_animation li a{
+		display: block; /*Что б применить ширину*/
+		width: 390px; /*Делаю, для того что б весь li  был ссылкой*/
+		font-size: 30px;
+		color: #163e43;
+	}
+	.menu_animation li:last-child{
+		margin-right:0px;
+	}
+
+	.transition_animation .li a{
+		display: block; /*Что б применить ширину*/
+		width: 300px; /*Делаю, для того что б весь li  был ссылкой*/
+		font-size: 30px;
+		color: #163e43;
+	}
+
+	.menu_animation ul{
+		position: absolute;
+		overflow: hidden;
+		top:100%;
+		left:0;
+	}
+	.transition_anim ul{
+		height: 0;
+	}
+	.menu_animation ul>li{
+		margin: 0; /*Задаю, потому что унаследовался от li, который выше задан общий*/
+		border: 1px solid black;
+		border-left:10px solid #00d1b8;
+		border-radius: 10px;
+		box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+    				-2px -2px 5px 0 rgba(0,0,0,.1),
+   					 2px 2px 5px 0 rgba(0,0,0,.1),
+    				-2px 2px 5px 0 rgba(0,0,0,.1);
+    	margin-bottom: 5px;
+		font-size: 20px;
+		transition: all 0.3s  linear;
+	}
+
+	.menu_animation .transition_anim:hover ul{
+		height: 240px;
+		padding-top:20px; /*Вставила сюда, иначе элемент скрыт а padding виден, даже при нулевой высоте*/
+		transition: height 0.5s  linear; /*Прописала какое именно свойство будет анимироваться, иначе и padding тоже плавно появляется. 
+		Анимация работает в одну сторону(потому что прописана только при hover), только при наведении мыши на элемент, потом элемент пропадает, но не анимировано уже.*/
+
+	}
+	.menu_animation li li:hover { /*Для того,что б когда навожу на определенный li то у него пропадал border и я видела,что на него навела*/
+		border-left: 10px solid transparent; /*transparent устанавливает прозрачный цвет.*/
+	}
+	.menu_animation .transform_anim ul{ 
+		opacity: 0; /*Скрыла, и буду его анимировать. 
+		Но изначально элемент присутствует на странице! Поэтому когда я даже навожу не на родителя hover, а на этот absolute,
+		то он уже начинает проявляться и становится элементом родителя.  
+		Поэтому его нужно скрыть еще ниже при помощи z-index*/
+		/*z-index: -4; Спрятала под body*/
+		padding-top:20px;
+	}
+	.menu_animation .transform_anim ul li{ 
+		position: absolute;/* Сделала их absolute, родитель не замечает их и не растягивается, и ul стал 0, не отображается на экране*/
+	}
+	.menu_animation li.transform_anim:hover ul li{/*ОШИБКА! Меню вылазит, даже если наводить под блоком*/
+		position: static;
+	}
+	.menu_animation li.transform_anim:hover ul{/*ОШИБКА! Меню вылазит, даже если наводить под блоком*/
+		opacity: 1;
+		transition: opacity  1s  steps(5); 
+	}
+
+	.menu_animation .volume_anim ul { /*Элемент растягивается по содержимому. скрываю не его и не li!!!!!!*/
+		position: absolute; /*ul выстраивается относительно  родителя li relative как и обычно в списке*/
+		top:100%;
+		left: 0;
+	}
+
+	.menu_animation .volume_anim ul li {
+		border: none; /*Убрала border, который тянулся из прошлого обращения выше для ul .menu_animation ul li,
+		перебила его обращением с большим весом селектора!*/
+	}
+	.menu_animation .volume_anim ul li a{
+		color: white;
+		font-size: 0;
+		line-height: 35px;
+		width: 0;/*Что б потом санимировать это свойство!*/
+		box-sizing: border-box;  /*Что б размер border входил в значение ширины элемента*/
+		border-radius: 10px;
+		box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+    				-2px -2px 5px 0 rgba(0,0,0,.1),
+   					 2px 2px 5px 0 rgba(0,0,0,.1),
+    				-2px 2px 5px 0 rgba(0,0,0,.1);
+
+    }
+	.menu_animation .volume_anim ul li:nth-child(1) {
+		margin-top:20px;
+	}
+	.menu_animation .volume_anim:hover ul li a{ /*Нужно скрывать именно a  и им же задавать значение border, 
+		что б ТОЛЬКО при появлении каждого а, появлялись их границы, а не до этого , как если бы они были заданы для li*/
+		width:390px;/* Родитель 390, но у а есть border-left:10px, поэтому ширина будет 380px или нужно задать box-sizing*/
+		border: 1px solid black;
+		border-left:10px solid #00d1b8;
+		font-size: 35px;
+		transition:width,font-size,border,border-left 0.3s  linear;/* Первый сразу вылазит, не ждет, и продолжительность 3с*/
+	}
+	.menu_animation .volume_anim:hover ul li:nth-child(2) a {
+		transition-delay: 0.5s; /*Второй вылазит через 2с после первого, и ждет получается 5с*/
+	}
+	.menu_animation .volume_anim:hover ul li:nth-child(3) a{
+		transition-delay: 1s; /*каждый последущий ждет тоже по 5с(продолжительность изменения 3с+задержка 2с=5с)*/
+	}
+	.menu_animation .volume_anim:hover ul li:nth-child(4) a {
+		transition-delay: 1.5s; 
+	}
+	.menu_animation .volume_anim:hover ul li:nth-child(5) a {
+		transition-delay: 2s; 
+	}
+	/*ul.menu_animation li.volume_anim ul li:hover a{ Хотела сделать,что б они исчезали когда на них наводишь, 
+	но идет задержка, такая же,как когда они появлялись
+		border-left:none;
+		transition:border-left 0.1s linear 0s;
+	}*/
+	/*ul.menu_animation li.volume_anim ul li:hover a{ Тоже идет задержка на то количество секунд,
+	 которое указано в .menu_animation .volume_anim:hover ul li:nth-child()
+		border-left:transparent;
+		transition:border-left 0.1s  linear 0s;
+	}*/
+/*Кнопка для перехода к анимации*/
+	.anim_button{
+		display: block;
+		height: 50px;
+		line-height: 50px;
+		padding: 10px;
+		/*margin: 5px 5px; Оставляла для наружной рамки*/
+	/*	background: linear-gradient(transparent 10%,white 11%, teal 25%,teal 75%,white 89%,transparent 90%);*/
+		background:radial-gradient(teal,white 90%);
+		box-shadow: 0 0 5px 5px rgba(44,138,138,1) inset;
+		color: white;
+
+	}
+
+/*Меню для рисунков и градиентов*/
+	.menu_pic{
+		background: #52a79e;
+		font-size: 0; /*Забыла дописать изначально(ошибка), и были пробелы между словами, поэтому 3 эл-та с шириной 400px не влазили в блок с шириной 1200 px*/
+		z-index: 2; /*Что б элементы которые ниже этого блока не перекрывали подсписок +*/
+		position:relative;
+	}
+	.menu_pic li{
+		display: inline-block;
+		vertical-align: top; /*Что б не было отступа внизу после этих элементов строчных!*/
+		background: #7c9e9a;
+		margin-right:10px;
+		position: relative;
+	}
+	.menu_pic li a{
+		display: block; /*Что б применить ширину*/
+		width: 390px; /*Делаю, для того что б весь li  был ссылкой*/
+		font-size: 30px;
+		color: #163e43;
+	}
+	.menu_pic li:last-child{
+		margin-right:0px;
+	}
+	
+	.menu_pic li a{
+		display: block; /*Что б применить ширину*/
+		width: 390px; /*Делаю, для того что б весь li  был ссылкой*/
+		font-size: 30px;
+		color: #163e43;
+	}
+
+	.menu_pic ul{
+		position: absolute;
+		overflow: hidden;
+		top:100%;
+		left:0;
+		background: #52a79e;
+		display: inline-block;
+	}
+	.menu_pic ul{
+		height: 0;
+	}
+	.menu_pic ul>li{
+		margin: 0; /*Задаю, потому что унаследовался от li, который выше задан общий*/
+		margin-bottom: 5px;
+		font-size: 20px;
+	}
+	.menu_pic ul>li:last-child{
+		margin-bottom: 0;
+	}
+
+	.menu_pic li:hover ul{
+		height: initial; /*устанавливает свойство элемента в начальное (или по умолчанию) значение.*/
+		padding-top:20px; /*Вставила сюда, иначе элемент скрыт а padding виден, даже при нулевой высоте*/
+		transition: height 0.5s  linear; /*Прописала какое именно свойство будет анимироваться, иначе и padding тоже плавно появляется. 
+		Анимация работает в одну сторону(потому что прописана только при hover), только при наведении мыши на элемент, потом элемент пропадает, но не анимировано уже.*/
+	}
+
+/*	Меню для форм*/
+	.menu_form{
+		font-size: 0;
+		background: #7c9e9a;
+	}
+	.menu_form>li{
+		position: relative;
+		display: inline-block;
+		margin: 0 20px;
+		vertical-align: top;
+		z-index: 1;
+
+	}
+	.menu_form .form_elem{
+		background: #7c9e9a;
+		outline: 1px solid #163e43;
+	}
+	.form_elem a{
+		width: 200px;
+		font-size: 35px;
+		line-height: 40px;
+		color:#163e43;
+		display: block;
+	}
+	.form_elem ul{
+		position: absolute;
+		top:100%;
+		left:0;
+		padding-top: 20px;
+		display: none;
+	}
+	.menu_form .form_elem:hover ul{
+		display: block;
+	}
+
+/*Нижняя часть сайта*/
+	.footer{
+		height:200px;
+		color: brown; /*Цвет текста внутри блока.Свойство будет наследоваться от родителя,если его не изменить.inherit - принудительно назначить наследование от родителя*/
+		font-size: 30px; /*Размер шрифта. Свойство будет наследоваться от родителя,если его не изменить.*/
+		line-height: 30px; 
+		margin: 0; /*Задала для р, что бы убрать отступы, которые есть у него по умолчанию.*/
+		text-align: left;
+		border: 1px solid red;
+		box-sizing:border-box;/*Алгоритм расчета ширины и высоты элемента(включая padding, border, НО НЕ margin)*/
+	}
+	/*#ending {
+		text-align: right; Выравниваю socmenu по правой части родителя
+	}
+	.socmenu{
+		display: inline-block; Делала для того что б выровнять socmenu при помощи text-align: right и поставить рядом с span
+
+	}*/
+
+/*Социальное меню*/
+	#ending span{
+		float: left; /*Сделала для того что б span был слева и в одну строку с socmenu*/
+	/*	Другие непозиционированные блочные элементы без float ведут себя так, как будто элемента с float нет, так как он убран из потока.
+		Строки (inline-элементы), напротив, «знают» о float и обтекают элемент по сторонам.
+		Вертикальные отступы margin элементов с float не сливаются с отступами соседей, в отличие от обычных блочных элементов.*/
+	}
+	#ending ul{
+		float: right; /*Сделала для того что б socmenu был справа и в одну строку с span*/
+		/*Тут ul каким-то образом, растянулся по контенту, а не на всю ширину хоть он и div. Элемент при наличии float получает display:block.НООООО
+		Все потому что, Ширина float-блока определяется по содержимому!!!!!!!!!!*/
+		font-size: 0;
+	}
+	/*Распорка есть выше*/
+
+	.socmenu>li{
+		/*background: #fff;*/
+		display: inline-block;
+		margin:1px 10px 10px 0; 
+		vertical-align: top;
+	/*	overflow: hidden;*/
+	}
+	.socmenu>li:last-child{
+		margin-right: 0;
+
+	}
+	.socmenu>li>a{
+		width: 60px;/* Размер картинки из спрайта, которая будет background для каждой ссылки*/
+		height: 60px; /* Размер картинки из спрайта, которая будет background для каждой ссылки*/
+		display: block; /*Для того, что б задать строчной ссылке ширину и высоту и padding(под картинку), мы делаем ее блочной!*/
+		background: url('../sprites/my_sprite/sprites.png') 0 0 no-repeat; /*Задала no-repeat что б не повторялся background,
+		теперь первый элемент не отображает изменения*/
+		color: #000;
+		text-decoration: none;
+		border-radius:10px; /*Устанавливает радиус скругления уголков рамки. Если рамка не задана, то скругление также происходит и с фоном.*/
+		font-size: 40px;
+		transition: width 1s linear; /*Задала трансформацию для всех элементов(all), и все свойства перечисленные трансформируются СРАЗУ,даже без наведения
+		 на элементы,поэтому выбрала только одно свойство. 
+		 Поэтому добавила анимацию для элементов, что б при событии на них анимировано происходили изменения только свойства ШИРИНЫ(прописала property-width),
+		 которое будут прописаны уже в hover.
+		 Анимация работает в две стороны (из начального в конечное состояние и обратно)на увеличение ширины и обратно возвращается к начальному значению ширины.
+		 Очень интересный эффект получился!!!!*/
+	}
+	
+	.socmenu> .t a{
+		background-position: 0 -60px ;
+	}
+	
+	.socmenu>.y a{
+		background-position: 0 -120px ;
+	}
+	.socmenu>.i a{
+		background-position: 0 -180px ;
+	}
+	/*.socmenu>li:hover a{ /*Вешаю hover на вышестоящий элемент, для удобства. Но можно и на a эффект тот же!*/
+		/*transition: width 1s linear;*/ /*Анимация работает только в одну сторону (из начального в заданное тут состояние)на увеличение ширины,
+		и потом когда вне зоны элемента мышка, то резко ширина прежней становится.*/
+		/*width: 300px; *//*Свойство, которое будет меняться и анимироваться еще при этом } */ 
+	
+	.socmenu>.f:hover a{ /*Вешаю hover на вышестоящий элемент, для удобства. Но можно и на a эффект тот же!*/
+		background:url('../sprites/my_sprite/sprites.png') 60px 0;
+	}
+	
+	.socmenu>.t:hover a{
+		background-position: -60px -60px ;
+	}
+	.socmenu>.y:hover a{
+		background-position: -60px -120px ;
+	}
+	.socmenu>.i:hover a{
+		background-position: -60px -180px ;
+	}
+	
+
+/*Обращение к определенным элементам и стилизация*/
+	div>div h1{ /*Обращение к элементу h1, который вложенный в div(header), который является дочерним от div(wrapper).*/
+		color: yellow;
+	}
+	div div h1{/*Обращение к элементу h1, который вложенный в div(header), который является дочерним от div(wrapper).*/
+		color: seagreen; /*Имеет больший вес при обращении к этому элементу, чем в глобальном стиле, поэтому сработает это свойство внешнее, а не глобальное.*/
+		font-size: 40px;
+		color: #bbefd5;
+		font-size: 40px;
+		background: #1c3a35;
+	}
+	div.line_item{ /*Выравнивание самого строчного элемента, а не его содержимого в пределах строки. Выравнивание line_item относительно картинки.*/
+		vertical-align: top;
+	}
+	.line_item a{
+		color:white;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+	}
+	.menu a{
+		color:pink;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+		margin: 0 10px;
+	}
+	.parent a{
+		color:teal;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+	}
+	div.line_item>a+a { /*Обращение к эл-ту span, перед! которым стоит эл-т span,который дочерний от div с классом sitebar*/
+		color: purple;
+	}
+
+

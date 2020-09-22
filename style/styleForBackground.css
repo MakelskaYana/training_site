@@ -1,0 +1,227 @@
+	@import "styleMeyerReset.css";
+/*Общие классы для всех body трех разных страниц*/
+	.container{
+		background: #52a79e;
+	}
+	.my_list{/* Класс для выравнивания списка по центру*/
+		text-align: center;
+		width: 1200px;
+		margin:0 auto;
+		
+	}
+	.my_menu { /*Стилизация списка*/
+		display: inline-block; /*Задала что  выровнять эти элементы по центру класса my_list*/
+		background: #488d83;
+		vertical-align: top; /*Что б не было пустого пространства в конце списка(скачут элементы)*/
+	}
+	.my_menu a{
+		display: block; /*Для того, что б задать padding для ссылки, нужно сделать ее блочной*/
+		font-size: 40px;
+		line-height: 50px;
+		padding: 20px; /*Добавляю, что б разделить надписи немного нежку собой и что б вся область вокруг надписи была ссылкой!*/
+		color: #c8dfdf;
+		text-decoration: none; /*Отменяет подчеркивание ссылки*/
+	}
+
+	.clearfix::after{ /*Распорка для блоков float , элементов списка*/
+		clear: both;
+		display: block;
+		content: "";
+	}
+
+	.my_menu>li{
+		float: left; /*Выравниваю элементы при помощи float*/
+		width: 150px;
+		border: 3px solid #a6c0e1;
+		margin: 0 30px; /*Разделяю между собой , делаю как кнопки*/	
+	}
+	.my_menu ul>li{
+		border: 3px solid #a6c0e1;
+		border-top: none;
+		background: #488d83;
+	}
+/*Классы для элементов с background*/
+	.wrapper{
+		width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	p{
+		font-size: 40px;
+		color: #000;
+	}
+/*Классы для body у которого id #first */
+	#first .first{
+		height: 800px;
+		background: #e3af97 url('../images/total.jpg') ; /*по умолчанию repeat*/
+	}
+	#first .second{
+		height: 800px;
+		background: #aedad6 url('../images/total.jpg') no-repeat ;
+	}
+	#first .third{
+		height: 800px;
+		background: #abdab9 url('../images/vert.jpg') repeat-x;
+	}
+	#first .fourth{
+		height: 800px;
+		background: #ecfdaa url('../images/vert.jpg') repeat-y;
+	}
+
+	#first .fifth{
+		height: 800px;
+		background: #ecfdaa url('../images/total.jpg') round;
+	}
+
+/*Классы для body у которого id #second */
+
+	#second .first{
+		height: 800px;
+		background: #ecfdaa url('../images/central.jpg'); /*по умолчанию avto*/
+	}
+	#second .second{
+		height: 800px;
+		background: #ecfdaa url('../images/central.jpg');
+		background-size: 1200px auto;/* Значение высоты вычислится автоматичеки, в пропорции к значению ширины*/
+	}
+	#second .third{
+		height: 800px;
+		background: #ecfdaa url('../images/central.jpg');
+		background-size: auto auto;/* размеры изображения остаются исходными, то что по умолчанию, не подстраиваются*/
+	}
+	#second .fourth{
+		height: 800px;
+		background: #ecfdaa url('../images/square2.jpg') ;
+		background-size: 1200px ;/*Заданный размер работает на ширину, поэтому обрезалось по высоте*/
+	}
+	#second .fifth{
+		height: 800px;
+		background: #ecfdaa url('../images/square2.jpg') ;
+		background-size: 350px 900px;/*Заданный размер работает на ширину, поэтому ширина отобразилась по заданному значению, а высота растянулась относительно нее*/
+	}
+	#second .sixth{
+		height: 800px;
+		background: #ecfdaa url('../images/square.jpg') ;
+		background-size: 100%;/*Сработало на ширину, поэтому ширина отобразилась по заданному значению, а высота обрезалась*/
+	}
+
+	#second .seventh{
+		height: 800px;
+		background: #ecfdaa url('../images/square.jpg') ;
+		background-size: auto 100%;/*Процент для высоты, поэтому высота отобразилась по заданному значению, а ширина замостилась автоматически*/
+	}
+	#second .eighth{
+		height: 800px;
+		background: #ecfdaa url('../images/vertic.jpg') ;
+		background-size: cover;/*Ширина по всей картинке , а высота обрезалась, как со 100%*/
+	}
+	#second .ninth{
+		width: 600px;
+		height: 700px;
+		background: #ecfdaa url('../images/total.jpg') ;
+		background-size: cover;/*Высота по всей картинке , а ширина обрезалась,*/
+	}
+	#second .tenth{
+		height: 700px;
+		background: #ecfdaa url('../images/vertical.jpg') no-repeat;
+		background-size: contain;/*Не зависит от пропорций блока.Высота картинки больше ,потому что картинка  должна была влезть вся, 
+		и вся высота поместилась а ширина пустует.*/
+	}
+	#second .eleventh{
+		width: 1000px;
+		height: 700px;
+		background: #ecfdaa url('../images/horizont.jpg') no-repeat;
+		background-size: contain;/*Не зависит от пропорций блока.Ширина картинки больше ,потому что картинка  должна была влезть вся, и вся ширина поместилась,
+		а высота пустует.Как в 100%, по ширине отобразилось, а высота пустует.*/
+	}
+
+
+/*Классы для body у которого id #third */
+	#third .first{
+		height: 800px;
+		background: #e3af97 url('../images/square.jpg') ; 
+		background-position: 0 0;/*по умолчанию*/
+		background-size: cover;
+	}
+	#third .second{
+		height: 800px;
+		background: #e3af97 url('../images/square.jpg') ; 
+		background-position: 0% 30%;/*первое значение-сдвиг по горизонтали, второе-по вертикали*/
+		background-size: cover;
+	}
+	#third .third{
+		width: 900px;
+		height: 800px;
+		background: #e3af97 url('../images/vertic2.jpg') no-repeat; 
+		background-position: -60px -40px;/*первое значение-сдвиг по горизонтали(если с минусом, то картинка сдвинулась влево), 
+		второе-по вертикали(если с минусом, то картинка сдвинулась вверх, там отрицательная ось)*/
+		background-size: contain;
+	}
+	#third .fourth{
+		width: 900px;
+		height: 800px;
+		background: #e3af97 url('../images/vertic2.jpg') no-repeat;  /*что б не повторялась*/
+		background-position: 60px 40px;/*первое значение-сдвиг по горизонтали,второе-по вертикали*/
+		background-size: contain; /*Что бы не растягивалась, а вместилась вся*/
+	}
+	#third .fifth{
+		/*width: 1200px;*/
+		height: 900px;
+		background: #e3af97 url('../images/square2.jpg') no-repeat; 
+		background-position: 50%;/*Сдвиг центра картинки относительно центра родителя*/
+		background-size: contain;
+	}
+	#third .sixth{
+		/*width: 1200px;*/
+		height: 900px;
+		background: #e3af97 url('../images/square2.jpg') no-repeat; 
+		background-position: 50%;/*Сдвиг центра картинки относительно центра родителя*/
+		background-size: cover;
+	}
+	#third .seventh{
+		/*width: 1200px;*/
+		height: 900px;
+		background: #e3af97 url('../images/square2.jpg') no-repeat; 
+		background-position: 90%;/*Сдвиг центра картинки относительно центра родителя*/
+		background-size: contain;
+	}
+	#third .eighth{
+		/*width: 1200px;*/
+		height: 1000px;
+		background: #e3af97 url('../images/square.jpg') no-repeat; 
+		background-position: right bottom;/*Сдвиг центра картинки относительно центра родителя*/
+		background-size: contain;
+	}
+	#third .ninth{
+		width: 400px;
+		height: 400px;
+		background: #e3af97 url('../images/horizont.jpg') no-repeat; 
+		background-position: right bottom;/*Сдвиг центра картинки относительно центра родителя*/
+		/*background-size: contain;  Если не задавать то будет по умолчанию авто и картинка отобразиться в полную высоту а по ширине обрежется*/
+		background-size: contain; /*Картинка смаштабируется по всей ширине своей, а сверху будет пустое место.*/
+	}
+	#third .tenth{
+		width: 1000px;
+		height: 600px;
+		background: #e3af97 url('../images/vertical.jpg') no-repeat; 
+		background-position: center bottom;/*Сдвиг центра картинки относительно центра родителя*/
+		/*background-size: contain;  Если не задавать то будет по умолчанию авто и картинка отобразиться в полную высоту а по ширине обрежется*/
+		background-size: cover; /*Картинка смаштабируется по всей ширине своей, а сверху будет пустое место.*/
+	}
+	#third .eleventh{
+		width: 300px;
+		height: 800px;
+		background: #e8c8b9 url('../images/vertic2.jpg') no-repeat; 
+		background-position: left center;/*Сдвиг центра картинки относительно центра родителя*/
+		/*background-size: contain;  Если не задавать то будет по умолчанию авто и картинка отобразиться в полную высоту а по ширине обрежется*/
+		background-size: cover; /*Картинка смаштабируется по всей ширине своей, а сверху будет пустое место.*/
+	}
+
+	#third .bg_img{/*Что б вела себя как background-size cover*/
+			min-width: 100%;
+			min-height: 100%;
+	
+	}
+	#third .parent{
+		overflow: hidden; /*!!!!!нужно что б обрезалась по родителю*/
+	}
